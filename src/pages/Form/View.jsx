@@ -4,9 +4,11 @@ import styles from "./styles.module.scss";
 const View = () => {
     return (
         <div className={styles.wrapper}>
-            <Link to='/form' className={styles.wrapper__button}>
-                Заполнить анкету
+            <Link to='/' className={styles.wrapper__button}>
+                Назад
             </Link>
+            <button className={styles.wrapper__button}>Заполнить анкету</button>
+            lol
         </div>
     );
 };

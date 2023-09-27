@@ -8,16 +8,13 @@
     justify-content: center;
 
     &__button {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
         background-color: $blue_color;
         border: none;
         border-radius: 5px;
-        height: 32px;
+        height: 30px;
         padding-left: 7px;
         padding-right: 7px;
-        @include text(600, 18px, 20px, $white_color);
+        @include text(600, 18px, 18px, $white_color);
         box-sizing: border-box;
     }
 

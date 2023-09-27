@@ -1,1 +1,1 @@
-export { default } from "./Connecotr.js";
+export { default } from "./Connector.js";
