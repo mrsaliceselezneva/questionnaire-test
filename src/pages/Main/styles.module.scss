@@ -1,0 +1,17 @@
+@import "src/styles/utils";
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+
+    @extend %adaptive_width;
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        margin-right: auto;
+        min-height: calc(100vh - $footer-height - $header-height - $margin30 * 2);
+    }
+}

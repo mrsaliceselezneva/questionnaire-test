@@ -1,11 +1,17 @@
-import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Main from "./pages/Main";
 
 const App = () => {
     return (
-        <>
-            <h1>Hello world! I am using React</h1>
-            <div />
-        </>
+        <div>
+            <Header />
+            <Routes>
+                <Route exact path='/*' element={<Main />} />
+            </Routes>
+            <Footer />
+        </div>
     );
 };
 
