@@ -12,6 +12,9 @@ const plugins = [
     new webpack.DefinePlugin({
         "process.env": JSON.stringify(process.env),
     }),
+    new webpack.ProvidePlugin({
+        React: "react",
+    }),
 ];
 
 const npm_package = require("./package.json");
