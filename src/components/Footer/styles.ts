@@ -1,6 +1,6 @@
 @import "src/styles/utils";
 
-.footer {
+.wrapper {
     height: $footer-height;
     background-color: $blue_color_transparency;
     box-shadow: 0 0 5px 2px $blue_color;
@@ -10,21 +10,14 @@
     margin-bottom: 0;
     margin-top: $margin30;
 
-    &__info {
+    &__footer {
         display: flex;
         flex-direction: row;
         align-items: center;
-
         @extend %adaptive_width;
-    }
+        justify-content: right;
 
-    &__wrapper {
-        display: flex;
-        align-items: center;
-        margin-left: auto;
-        margin-right: 0;
-
-        &__personal_info {
+        &__info {
             display: flex;
             flex-direction: column;
 

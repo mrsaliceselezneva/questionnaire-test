@@ -22,7 +22,7 @@ const npm_package = require("./package.json");
 module.exports = {
     mode: "development",
     plugins,
-    entry: ["@babel/polyfill", "./src/index.jsx"],
+    entry: ["@babel/polyfill", "./src/index.tsx"],
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".d.ts"],
         alias: {
@@ -36,7 +36,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].[hash].js",
+        filename: "[name].[hash].ts",
     },
 
     devServer: {
@@ -54,7 +54,7 @@ module.exports = {
                 use: ["file-loader"],
             },
             {
-                test: /\.m?js$/,
+                test: /\.m?ts$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
@@ -64,7 +64,7 @@ module.exports = {
                 },
             },
             {
-                test: /\.jsx$/,
+                test: /\.tsx$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
