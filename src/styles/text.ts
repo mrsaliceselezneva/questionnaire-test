@@ -1,13 +1,13 @@
 import { css } from "styled-components";
 
-const text = (w: string, s: string, l: string, c: string) => css`
+const text = (fontWeight: number, fontSize: number, lineHeight: number, color: string) => css`
     @import url("http://fonts.googleapis.com/css?family=Comfortaa&subset=latin,cyrillic");
     font-family: "Comfortaa";
     font-style: normal;
-    font-weight: ${w};
-    font-size: ${s};
-    line-height: ${l};
-    color: ${c};
+    font-weight: ${fontWeight};
+    font-size: ${fontSize}px;
+    line-height: ${lineHeight}px;
+    color: ${color};
 `;
 
 export default text;

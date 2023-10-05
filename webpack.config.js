@@ -24,7 +24,7 @@ module.exports = {
     plugins,
     entry: ["@babel/polyfill", "./src/index.tsx"],
     resolve: {
-        extensions: [".js", ".jsx", ".ts", ".tsx", ".scss", ".d.ts"],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
         alias: {
             helpers: path.resolve(__dirname, "src/helpers/"),
             components: path.resolve(__dirname, "src/components/"),
@@ -32,11 +32,12 @@ module.exports = {
             pages: path.resolve(__dirname, "src/pages/"),
             baseUrl: path.resolve(__dirname, "src/"),
             store: path.resolve(__dirname, "src/redux"),
+            styles: path.resolve(__dirname, "src/styles"),
         },
     },
     output: {
+        filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
-        filename: "[name].[hash].ts",
     },
 
     devServer: {
@@ -45,6 +46,16 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: "ts-loader",
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.tsx?$/,
+                use: "ts-loader",
+                exclude: /node_modules/,
+            },
             {
                 test: /\.s[ac]ss$/i,
                 use: ["style-loader", "css-loader", "sass-loader"],

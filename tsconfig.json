@@ -1,8 +1,14 @@
 {
     "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
         "jsx": "react",
-        "baseUrl": "./src"
+        "sourceMap": true
     },
-    "include": ["src", "***/*.ts", "***/*.tsx"],
-    "exclude": ["node_modules", "build"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/__tests__/*"]
 }
