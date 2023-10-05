@@ -1,10 +1,24 @@
-import * as React from "react";
+import React, { FC } from "react";
 import ButtonLink from "./styles";
 
-const View = (props) => {
+interface TypeProps {
+    to: string;
+    text: string;
+    fontWeight: number;
+    fontSize: number;
+    lineHeight: number;
+    color: string;
+    background: string;
+    backgroundHover: string;
+    backgroundActive: string;
+}
+
+const View: FC<TypeProps> = (props) => {
+    const { to, text, ...rest } = props;
+
     return (
-        <ButtonLink {...props} to={props.to}>
-            {props.text}
+        <ButtonLink {...rest} to={to}>
+            {text}
         </ButtonLink>
     );
 };

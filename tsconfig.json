@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "baseUrl": "./src",
         "target": "es5",
         "module": "commonjs",
         "strict": true,
@@ -7,7 +8,16 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "jsx": "react",
-        "sourceMap": true
+        "sourceMap": true,
+        "paths": {
+            "helpers": ["src/helpers/"],
+            "components": ["src/components"],
+            "api": ["src/api/"],
+            "pages": ["src/pages"],
+            "baseUrl": ["src/"],
+            "store": ["src/redux"],
+            "styles": ["src/styles"]
+        }
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules", "**/__tests__/*"]

@@ -1,9 +1,9 @@
 import Form from "./pages/Form";
 import Main from "./pages/Main";
 import { Route, Routes } from "react-router-dom";
-import * as React from "react";
+import React, { FC } from "react";
 
-const App = () => {
+const App: FC = () => {
     return (
         <div>
             <Routes>

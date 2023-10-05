@@ -27,9 +27,9 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
         alias: {
             helpers: path.resolve(__dirname, "src/helpers/"),
-            components: path.resolve(__dirname, "src/components/"),
+            components: path.resolve(__dirname, "src/components"),
             api: path.resolve(__dirname, "src/api/"),
-            pages: path.resolve(__dirname, "src/pages/"),
+            pages: path.resolve(__dirname, "src/pages"),
             baseUrl: path.resolve(__dirname, "src/"),
             store: path.resolve(__dirname, "src/redux"),
             styles: path.resolve(__dirname, "src/styles"),
@@ -46,11 +46,6 @@ module.exports = {
 
     module: {
         rules: [
-            {
-                test: /\.tsx?$/,
-                use: "ts-loader",
-                exclude: /node_modules/,
-            },
             {
                 test: /\.tsx?$/,
                 use: "ts-loader",

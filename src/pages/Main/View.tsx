@@ -1,9 +1,9 @@
-import * as React from "react";
+import React, { FC } from "react";
 import Wrapper from "./styles";
 import ButtonLink from "components/ButtonLink";
 import colors from "styles/colors";
 
-const View = () => {
+const View: FC = () => {
     return (
         <Wrapper>
             <ButtonLink
