@@ -1,7 +1,7 @@
 import * as React from "react";
 import ButtonLink from "./styles";
 
-const View = (props) => {
+const View = (props: any) => {
     return (
         <ButtonLink {...props} to={props.to}>
             {props.text}

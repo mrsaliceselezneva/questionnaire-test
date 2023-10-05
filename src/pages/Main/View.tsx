@@ -1,14 +1,13 @@
 import * as React from "react";
 import Wrapper from "./styles";
-import ButtonLink from "components/ButtonLink";
-import colors from "styles/colors";
+import ButtonLink from "../../components/ButtonLink/styles";
+import colors from "../../styles/colors";
 
 const View = () => {
     return (
         <Wrapper>
             <ButtonLink
                 to={"/form"}
-                text={"Заполнить анкету"}
                 fontWeight={600}
                 fontSize={16}
                 lineHeight={18}
@@ -16,7 +15,9 @@ const View = () => {
                 background={colors.blueColor}
                 backgroundHover={colors.blueColorHover}
                 backgroundActive={colors.blueColorActive}
-            />
+            >
+                Заполнить анкету
+            </ButtonLink>
         </Wrapper>
     );
 };

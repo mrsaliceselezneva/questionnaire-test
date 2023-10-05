@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import size from "styles/size";
-import adaptiveWidth from "styles/adaptiveWidth";
+import size from "../../styles/size";
+import adaptiveWidth from "../../styles/adaptiveWidth";
 
 const Wrapper = styled.div`
     display: flex;
