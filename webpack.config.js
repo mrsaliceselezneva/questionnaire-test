@@ -27,17 +27,17 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
         alias: {
             helpers: path.resolve(__dirname, "src/helpers/"),
-            components: path.resolve(__dirname, "src/components"),
+            components: path.resolve(__dirname, "src/components/"),
             api: path.resolve(__dirname, "src/api/"),
-            pages: path.resolve(__dirname, "src/pages"),
+            pages: path.resolve(__dirname, "src/pages/"),
             baseUrl: path.resolve(__dirname, "src/"),
             store: path.resolve(__dirname, "src/redux"),
             styles: path.resolve(__dirname, "src/styles"),
         },
     },
     output: {
-        filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
+        filename: "[name].bundle.js",
     },
 
     devServer: {
@@ -58,26 +58,6 @@ module.exports = {
             {
                 test: /\.(jpg|jpeg|png|svg)/,
                 use: ["file-loader"],
-            },
-            {
-                test: /\.m?ts$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"],
-                    },
-                },
-            },
-            {
-                test: /\.tsx$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-react", "@babel/preset-env"],
-                    },
-                },
             },
         ],
     },

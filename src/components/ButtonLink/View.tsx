@@ -13,7 +13,7 @@ interface TypeProps {
     backgroundActive: string;
 }
 
-const View: FC<TypeProps> = (props) => {
+const View: FC<TypeProps> = (props: any) => {
     const { to, text, ...rest } = props;
 
     return (

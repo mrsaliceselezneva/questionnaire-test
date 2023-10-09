@@ -8,6 +8,8 @@ const colors = {
     redColor: "#ff6e4a",
     blackoutColor: "rgba(0, 0, 0, 0.5)",
     blueColorTransparency: "rgba(76, 167, 248, 0.3)",
+    blueColorShadow: "0 0 5px 2px #4ca7f8",
+    blackColorShadow: "0 0 5px 2px #292929",
 };
 
 export default colors;

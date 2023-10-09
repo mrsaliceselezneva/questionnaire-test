@@ -1,22 +1,26 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import text from "styles/text";
+import { Link } from "react-router-dom";
 
 type Props = {
     fontWeight: number;
     fontSize: number;
     lineHeight: number;
     color: string;
-    background: string;
-    backgroundHover: string;
-    backgroundActive: string;
+    colorHover: string;
+    margin: number;
 };
 
-const ButtonLink = styled(Link)<Props>`
+const Text = styled.div<Props>`
+    margin-bottom: ${({ margin }) => margin}px;
+    ${(props: { fontWeight: number; fontSize: number; lineHeight: number; color: string }) =>
+        text(props.fontWeight, props.fontSize, props.lineHeight, props.color)}
+`;
+
+const TextLink = styled(Link)<Props>`
     display: flex;
     align-items: center;
     text-decoration: none;
-    background-color: ${({ background }) => background};
     border: none;
     border-radius: 5px;
     height: 32px;
@@ -27,12 +31,10 @@ const ButtonLink = styled(Link)<Props>`
         text(props.fontWeight, props.fontSize, props.lineHeight, props.color)}
 
     &:hover {
-        background-color: ${({ backgroundHover }) => backgroundHover};
+        background-color: ${({ color }) => color};
+        color: ${({ colorHover }) => colorHover};
     }
-
-    &:active {
-        background-color: ${({ backgroundActive }) => backgroundActive};
-    }
+    cursor: pointer;
 `;
 
-export default ButtonLink;
+export { Text, TextLink };

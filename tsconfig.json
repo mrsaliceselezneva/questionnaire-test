@@ -2,23 +2,33 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "target": "es5",
-        "module": "commonjs",
+        "module": "esnext",
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
         "forceConsistentCasingInFileNames": true,
         "jsx": "react",
         "sourceMap": true,
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "declaration": false,
+        "allowSyntheticDefaultImports": true,
+        "noFallthroughCasesInSwitch": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
         "paths": {
-            "helpers": ["src/helpers/"],
+            "helpers": ["src/helpers"],
             "components": ["src/components"],
-            "api": ["src/api/"],
+            "api": ["src/api"],
             "pages": ["src/pages"],
-            "baseUrl": ["src/"],
+            "baseUrl": ["src"],
             "store": ["src/redux"],
             "styles": ["src/styles"]
         }
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "src"],
     "exclude": ["node_modules", "**/__tests__/*"]
 }
