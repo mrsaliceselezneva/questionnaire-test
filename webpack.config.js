@@ -1,6 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+
 const webpack = require("webpack");
 const dotenv = require("dotenv").config({
     path: path.join(__dirname, ".env"),
@@ -22,7 +23,7 @@ const npm_package = require("./package.json");
 module.exports = {
     mode: "development",
     plugins,
-    entry: ["@babel/polyfill", "./src/index.tsx"],
+    entry: ["./src/index.tsx", "@babel/polyfill"],
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
         alias: {
@@ -35,13 +36,15 @@ module.exports = {
             styles: path.resolve(__dirname, "src/styles"),
         },
     },
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "[name].bundle.js",
-    },
 
     devServer: {
         port: 3010,
+        static: { directory: path.join(__dirname, "./") },
+    },
+
+    output: {
+        path: path.resolve(__dirname, "dist"),
+        filename: "index_bundle.js",
     },
 
     module: {

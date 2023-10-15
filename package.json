@@ -37,20 +37,25 @@
     "typescript": "^5.2.2",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^4.15.1",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-nano": "^1.1.1"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
     "@types/jest": "^29.5.5",
     "@types/node": "^20.8.2",
-    "antd": "^5.9.3",
+    "antd": "^5.10.0",
+    "cookies-ts": "^1.0.5",
     "css-loader": "^6.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0",
+    "redux": "^4.2.1",
     "sass": "^1.68.0",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",

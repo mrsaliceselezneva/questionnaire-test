@@ -1,20 +1,20 @@
 import React, { FC } from "react";
+import Wrapper from "./styles";
 import colors from "styles/colors";
 import ButtonLink from "components/ButtonLink";
-import Wrapper from "./styles";
-import Cookies from "cookies-ts";
 
 const View: FC = () => {
     const data = {
-        to: "/personal",
-        text: "Начать",
+        to: "/",
+        text: "назад",
         fontWeight: 800,
         fontSize: 16,
         lineHeight: 16,
         color: colors.whiteColor,
         background: colors.blueColor,
+        backgroundHover: colors.blueColorHover,
+        backgroundActive: colors.blueColorActive,
     };
-
     return (
         <Wrapper>
             <ButtonLink {...data} />

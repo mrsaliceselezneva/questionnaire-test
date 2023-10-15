@@ -1,25 +1,29 @@
 import React, { FC } from "react";
-import ButtonLink from "./styles";
+import { StyledLink, StyledButton } from "./styles";
 
 interface TypeProps {
     to: string;
     text: string;
-    fontWeight: number;
-    fontSize: number;
-    lineHeight: number;
-    color: string;
-    background: string;
-    backgroundHover: string;
-    backgroundActive: string;
+    fontWeight?: number;
+    fontSize?: number;
+    lineHeight?: number;
+    color?: string;
+    background?: string;
+    backgroundHover?: string;
+    backgroundActive?: string;
+    isDanger?: boolean;
+    type?: string;
 }
 
 const View: FC<TypeProps> = (props: any) => {
-    const { to, text, ...rest } = props;
+    const { to, text, isDanger, type = "primary", ...rest } = props;
 
     return (
-        <ButtonLink {...rest} to={to}>
-            {text}
-        </ButtonLink>
+        <StyledLink to={to}>
+            <StyledButton {...rest} type={type} danger={isDanger}>
+                {text}
+            </StyledButton>
+        </StyledLink>
     );
 };
 
