@@ -13,7 +13,7 @@ const App: FC = () => {
         <div>
             <Header />
             <Routes>
-                <Route path='/' element={<Personal />} />
+                <Route path='/personal' element={<Personal />} />
                 <Route path='/photo' element={<Photo />} />
                 <Route path='/skills' element={<Skills />} />
                 <Route path='/about' element={<About />} />
