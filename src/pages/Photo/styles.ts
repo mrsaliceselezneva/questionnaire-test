@@ -4,8 +4,17 @@ import adaptiveWidth from "styles/adaptiveWidth";
 
 const Wrapper = styled.div`
     display: flex;
+    flex-direction: column;
+    align-items: center;
     ${adaptiveWidth}
     min-height: calc(100vh - ${size.footerHeight + size.headerHeight + size.margin30 * 2}px);
 `;
 
-export default Wrapper;
+const Bottom = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 180px;
+`;
+
+export { Wrapper, Bottom };

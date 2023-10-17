@@ -2,7 +2,9 @@ import React, { FC } from "react";
 import { Wrapper } from "./styles";
 import FormInput from "components/FormInput";
 import FormRadio from "components/FormRadio";
-import { Button, Form } from "antd";
+import FormButton from "components/FormButton";
+import { Form } from "antd";
+import { Link } from "react-router-dom";
 
 type formParameter = {
     name: string;
@@ -22,16 +24,20 @@ type dataFormRadioType = {
     radioList: { value: string; title: string }[];
 };
 
+type dataFormButtonTyoe = {
+    title: string;
+};
 interface TypeProps {
     formParameter: formParameter;
     dataSurname: dataFormInputType;
     dataName: dataFormInputType;
     dataPatronymic: dataFormInputType;
     dataRadio: dataFormRadioType;
+    dataButton: dataFormButtonTyoe;
 }
 
 const View: FC<TypeProps> = (props) => {
-    const { formParameter, dataSurname, dataName, dataPatronymic, dataRadio } = props;
+    const { formParameter, dataSurname, dataName, dataPatronymic, dataRadio, dataButton } = props;
 
     return (
         <Wrapper>
@@ -41,12 +47,9 @@ const View: FC<TypeProps> = (props) => {
                 <FormInput {...dataPatronymic} />
 
                 <FormRadio {...dataRadio} />
-
-                <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-                    <Button type='primary' htmlType='submit'>
-                        Вперёд
-                    </Button>
-                </Form.Item>
+                <Link to='/photo'>
+                    <FormButton {...dataButton} />
+                </Link>
             </Form>
         </Wrapper>
     );

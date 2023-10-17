@@ -1,23 +1,42 @@
 import React, { FC } from "react";
-import Wrapper from "./styles";
-import colors from "styles/colors";
-import ButtonLink from "components/ButtonLink";
+import { Form } from "antd";
+import FormButton from "components/FormButton";
+import FormUpload from "components/FormUpload";
+import { Wrapper } from "./styles";
 
-const View: FC = () => {
-    const data = {
-        to: "/",
-        text: "назад",
-        fontWeight: 800,
-        fontSize: 16,
-        lineHeight: 16,
-        color: colors.whiteColor,
-        background: colors.blueColor,
-        backgroundHover: colors.blueColorHover,
-        backgroundActive: colors.blueColorActive,
-    };
+type formParameter = {
+    name: string;
+    labelCol: object;
+    wrapperCol: object;
+    onFinish: any;
+    onFinishFailed: any;
+    autoComplete: string;
+};
+
+type dataFormUploadType = {
+    label: string;
+    name: string;
+    rules: any;
+};
+
+type dataFormButtonType = {
+    title: string;
+};
+interface TypeProps {
+    formParameter: formParameter;
+    dataButton: dataFormButtonType;
+    dataUpload: dataFormUploadType;
+}
+
+const View: FC<TypeProps> = (props) => {
+    const { formParameter, dataButton, dataUpload } = props;
+
     return (
         <Wrapper>
-            <ButtonLink {...data} />
+            <Form {...formParameter}>
+                <FormUpload dataUpload={dataUpload} />
+                <FormButton {...dataButton} />
+            </Form>
         </Wrapper>
     );
 };

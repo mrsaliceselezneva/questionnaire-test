@@ -69,6 +69,10 @@ const Connector: FC = () => {
         ],
     };
 
+    const dataButton = {
+        title: "Вперёд",
+    };
+
     return (
         <View
             formParameter={formParameter}
@@ -76,6 +80,7 @@ const Connector: FC = () => {
             dataName={dataName}
             dataPatronymic={dataPatronymic}
             dataRadio={dataRadio}
+            dataButton={dataButton}
         />
     );
 };
