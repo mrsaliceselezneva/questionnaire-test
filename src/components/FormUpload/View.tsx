@@ -1,10 +1,5 @@
 import React, { FC } from "react";
-import { StyledDiv, StyledTitle, StyledInput } from "./styles";
-import ImgCrop from "antd-img-crop";
-import { Upload, Form, Modal, Input } from "antd";
-import type { UploadFile } from "antd/es/upload/interface";
-import type { RcFile, UploadProps } from "antd/es/upload";
-import FormButton from "components/FormButton";
+import { Upload, Form, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 
 interface TypeProps {
@@ -33,12 +28,6 @@ const View: FC<TypeProps> = (props: any) => {
         handleCancel,
         previewImage,
     } = props;
-
-    type FieldType = {
-        surname?: string;
-        name?: string;
-        patronymic?: string;
-    };
 
     const uploadButton = (
         <div>

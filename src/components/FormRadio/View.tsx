@@ -9,14 +9,14 @@ interface TypeProps {
     radioList?: { value: string; title: string }[];
 }
 
+type FieldType = {
+    surname?: string;
+    name?: string;
+    patronymic?: string;
+};
+
 const View: FC<TypeProps> = (props: any) => {
     const { label, name, rules, radioList } = props;
-
-    type FieldType = {
-        surname?: string;
-        name?: string;
-        patronymic?: string;
-    };
 
     return (
         <Form.Item label={label} name={name} rules={rules}>

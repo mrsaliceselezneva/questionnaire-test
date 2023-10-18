@@ -8,14 +8,14 @@ interface TypeProps {
     rules?: any;
 }
 
+type FieldType = {
+    surname?: string;
+    name?: string;
+    patronymic?: string;
+};
+
 const View: FC<TypeProps> = (props: any) => {
     const { label, name, rules } = props;
-
-    type FieldType = {
-        surname?: string;
-        name?: string;
-        patronymic?: string;
-    };
 
     return (
         <Form.Item<FieldType> label={label} name={name} rules={rules}>
