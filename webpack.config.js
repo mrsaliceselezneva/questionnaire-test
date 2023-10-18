@@ -40,6 +40,8 @@ module.exports = {
     devServer: {
         port: 3010,
         static: { directory: path.join(__dirname, "./") },
+        //TODO: используй вот это для того чтобы исправить CANNOT GET / при перезагрузке страницы
+        historyApiFallback: { disableDotRule: true },
     },
 
     output: {

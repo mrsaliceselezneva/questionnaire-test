@@ -1,3 +1,5 @@
+//TODO: переделать файл на ts
+
 import { configureStore } from "@reduxjs/toolkit";
 import {
     persistStore,

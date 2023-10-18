@@ -1,8 +1,11 @@
 import React, { FC } from "react";
 import View from "./View";
 import colors from "styles/colors";
+import { useNavigate } from "react-router-dom";
 
 const Connector: FC = () => {
+    const navigate = useNavigate();
+
     const dataNext = {
         to: "/Photo",
         text: "Вперёд",
@@ -25,6 +28,8 @@ const Connector: FC = () => {
     };
 
     const onFinish = (values: any) => {
+        //TODO: используй useNavigate для перехода к другиx страницам https://reactrouter.com/en/main/hooks/use-navigate
+        navigate("/photo");
         console.log("Success:", values);
     };
 

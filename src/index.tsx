@@ -5,6 +5,7 @@ import React from "react";
 import colors from "styles/colors";
 import { createGlobalStyle } from "styled-components";
 
+//TODO: вынеси GlobalStyle в отдельный файл
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;

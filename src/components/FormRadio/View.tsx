@@ -12,6 +12,7 @@ interface TypeProps {
 const View: FC<TypeProps> = (props: any) => {
     const { label, name, rules, radioList } = props;
 
+    //TODO: типы лучше выносить выше компонента, рядом с interface
     type FieldType = {
         surname?: string;
         name?: string;

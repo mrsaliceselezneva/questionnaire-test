@@ -2,6 +2,9 @@ import { css } from "styled-components";
 import size from "./size";
 import media from "./media";
 
+//TODO: немного странный рассчет, по сути ты не должен жестко задавать width у блока с формой, 
+//если уж точно нужно задать ширину, то лучше использовать max-width, 
+// посмотри какие нибудь видео как это можно сделать адаптив без жеткого задания ширины
 const adaptiveWidth = () => css`
     width: ${size.itemWidth * 4 + size.margin30 * 4 + size.itemWidth}px;
     @media (max-width: ${media.media1}) {
