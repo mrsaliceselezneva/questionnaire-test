@@ -4,7 +4,6 @@ import FormInput from "components/FormInput";
 import FormRadio from "components/FormRadio";
 import FormButton from "components/FormButton";
 import { Form } from "antd";
-import { Link } from "react-router-dom";
 
 type formParameter = {
     name: string;
@@ -24,7 +23,7 @@ type dataFormRadioType = {
     radioList: { value: string; title: string }[];
 };
 
-type dataFormButtonTyoe = {
+type dataFormButtonType = {
     title: string;
 };
 interface TypeProps {
@@ -33,7 +32,7 @@ interface TypeProps {
     dataName: dataFormInputType;
     dataPatronymic: dataFormInputType;
     dataRadio: dataFormRadioType;
-    dataButton: dataFormButtonTyoe;
+    dataButton: dataFormButtonType;
 }
 
 const View: FC<TypeProps> = (props) => {
@@ -42,14 +41,12 @@ const View: FC<TypeProps> = (props) => {
     return (
         <Wrapper>
             <Form {...formParameter}>
-                <FormInput {...dataSurname} />
-                <FormInput {...dataName} />
-                <FormInput {...dataPatronymic} />
+                <FormInput {...dataSurname} key={dataSurname.name} />
+                <FormInput {...dataName} key={dataName.name} />
+                <FormInput {...dataPatronymic} key={dataPatronymic.name} />
 
                 <FormRadio {...dataRadio} />
-                <Link to='/photo'>
-                    <FormButton {...dataButton} />
-                </Link>
+                <FormButton {...dataButton} />
             </Form>
         </Wrapper>
     );

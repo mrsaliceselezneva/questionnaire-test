@@ -12,7 +12,7 @@ const View: FC = () => {
 
     return (
         <Space split={<Divider type='vertical' />}>
-            <ButtonLink {...data} />
+            <ButtonLink data={data} />
         </Space>
     );
 };

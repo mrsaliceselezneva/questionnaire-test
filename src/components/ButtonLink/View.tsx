@@ -1,8 +1,7 @@
 import React, { FC } from "react";
-import { StyledLink, StyledButton } from "./styles";
+import { Button } from "antd";
 
 interface TypeProps {
-    to: string;
     text: string;
     fontWeight?: number;
     fontSize?: number;
@@ -13,17 +12,16 @@ interface TypeProps {
     backgroundActive?: string;
     isDanger?: boolean;
     type?: string;
+    renavigate: any;
 }
 
 const View: FC<TypeProps> = (props: any) => {
-    const { to, text, isDanger, type = "primary", ...rest } = props;
+    const { text, isDanger, type = "primary", renavigate, ...rest } = props;
 
     return (
-        <StyledLink to={to}>
-            <StyledButton {...rest} type={type} danger={isDanger}>
-                {text}
-            </StyledButton>
-        </StyledLink>
+        <Button type={type} danger={isDanger} onClick={renavigate}>
+            {text}
+        </Button>
     );
 };
 

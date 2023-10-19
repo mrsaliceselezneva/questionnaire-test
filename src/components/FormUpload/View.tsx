@@ -40,7 +40,7 @@ const View: FC<TypeProps> = (props: any) => {
         <>
             <Form.Item name={name} label={label} rules={rules}>
                 <Upload
-                    action='https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188'
+                    action='http://localhost:3000/img'
                     listType='picture-card'
                     fileList={fileList}
                     onPreview={handlePreview}

@@ -1,8 +1,20 @@
 import React, { FC } from "react";
 import View from "./View";
 import colors from "styles/colors";
+import { useNavigate } from "react-router-dom";
+import Cookies from "cookies-ts";
 
 const Connector: FC = () => {
+    const navigate = useNavigate();
+    const cookies = new Cookies();
+
+    // cookies.set(keyName: string, {
+    //     expires?: string | number | Date,
+    //     path?: string,
+    //     domain?: string,
+    //     secure?: boolean
+    // })
+
     const dataNext = {
         to: "/Photo",
         text: "Вперёд",
@@ -25,10 +37,13 @@ const Connector: FC = () => {
     };
 
     const onFinish = (values: any) => {
+        cookies.set("route", "/photo");
         console.log("Success:", values);
+        navigate("/photo");
     };
 
     const onFinishFailed = (errorInfo: any) => {
+        console.log(cookies.get("route"));
         console.log("Failed:", errorInfo);
     };
 
