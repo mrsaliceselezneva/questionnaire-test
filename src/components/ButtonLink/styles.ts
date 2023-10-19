@@ -14,8 +14,7 @@ type Props = {
 };
 
 const StyledButton = styled(Button)<Props>`
-    display: flex;
-    background-color: ${({ background }) => background};
+    margin: 5px;
 `;
 
 const StyledLink = styled(Link)<Props>`

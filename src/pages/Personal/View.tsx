@@ -1,11 +1,12 @@
 import React, { FC } from "react";
-import { Wrapper } from "./styles";
+import { Form } from "antd";
 import FormInput from "components/FormInput";
 import FormRadio from "components/FormRadio";
 import FormButton from "components/FormButton";
-import { Form } from "antd";
+import ButtonLink from "components/ButtonLink";
+import { Wrapper, Bottom } from "./styles";
 
-type formParameter = {
+type formParameterType = {
     name: string;
     labelCol: object;
     wrapperCol: object;
@@ -16,27 +17,42 @@ type formParameter = {
 
 type dataFormInputType = { label: string; name: string; rules: any };
 
-type dataFormRadioType = {
+type dataRadioType = {
     label: string;
     name: string;
     rules: any;
     radioList: { value: string; title: string }[];
 };
 
-type dataFormButtonType = {
+type dataButtonType = {
     title: string;
 };
+
+type dataCancelType = {
+    to: string;
+    text: string;
+    isDanger: boolean;
+};
 interface TypeProps {
-    formParameter: formParameter;
+    formParameter: formParameterType;
     dataSurname: dataFormInputType;
     dataName: dataFormInputType;
     dataPatronymic: dataFormInputType;
-    dataRadio: dataFormRadioType;
-    dataButton: dataFormButtonType;
+    dataRadio: dataRadioType;
+    dataButton: dataButtonType;
+    dataCancel: dataCancelType;
 }
 
 const View: FC<TypeProps> = (props) => {
-    const { formParameter, dataSurname, dataName, dataPatronymic, dataRadio, dataButton } = props;
+    const {
+        formParameter,
+        dataSurname,
+        dataName,
+        dataPatronymic,
+        dataRadio,
+        dataButton,
+        dataCancel,
+    } = props;
 
     return (
         <Wrapper>
@@ -46,7 +62,10 @@ const View: FC<TypeProps> = (props) => {
                 <FormInput {...dataPatronymic} key={dataPatronymic.name} />
 
                 <FormRadio {...dataRadio} />
-                <FormButton {...dataButton} />
+                <Bottom>
+                    <ButtonLink data={dataCancel} />
+                    <FormButton {...dataButton} />
+                </Bottom>
             </Form>
         </Wrapper>
     );

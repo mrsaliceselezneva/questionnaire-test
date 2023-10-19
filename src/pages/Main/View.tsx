@@ -1,9 +1,6 @@
 import React, { FC } from "react";
-import { useNavigate } from "react-router-dom";
-import colors from "styles/colors";
 import ButtonLink from "components/ButtonLink";
 import Wrapper from "./styles";
-import Cookies from "cookies-ts";
 
 type dataType = {
     to: string;

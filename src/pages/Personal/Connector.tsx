@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import View from "./View";
-import colors from "styles/colors";
 import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 
@@ -8,31 +7,9 @@ const Connector: FC = () => {
     const navigate = useNavigate();
     const cookies = new Cookies();
 
-    // cookies.set(keyName: string, {
-    //     expires?: string | number | Date,
-    //     path?: string,
-    //     domain?: string,
-    //     secure?: boolean
-    // })
-
-    const dataNext = {
-        to: "/Photo",
-        text: "Вперёд",
-        fontWeight: 800,
-        fontSize: 16,
-        lineHeight: 16,
-        color: colors.whiteColor,
-        background: colors.blueColor,
-    };
-
     const dataCancel = {
         to: "/",
         text: "Отмена",
-        fontWeight: 800,
-        fontSize: 16,
-        lineHeight: 16,
-        color: colors.whiteColor,
-        background: colors.blueColor,
         isDanger: true,
     };
 
@@ -96,6 +73,7 @@ const Connector: FC = () => {
             dataPatronymic={dataPatronymic}
             dataRadio={dataRadio}
             dataButton={dataButton}
+            dataCancel={dataCancel}
         />
     );
 };

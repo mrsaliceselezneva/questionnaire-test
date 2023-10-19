@@ -29,7 +29,20 @@ const Connector: FC = () => {
         rules: [{ required: true, message: "Пожалуйста, загрузите своё Фото!" }],
     };
 
-    return <View formParameter={formParameter} dataButton={dataButton} dataUpload={dataUpload} />;
+    const dataCancel = {
+        to: "/",
+        text: "Отмена",
+        isDanger: true,
+    };
+
+    return (
+        <View
+            formParameter={formParameter}
+            dataButton={dataButton}
+            dataUpload={dataUpload}
+            dataCancel={dataCancel}
+        />
+    );
 };
 
 export default Connector;

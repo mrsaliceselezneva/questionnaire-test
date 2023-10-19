@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import View from "./View";
-import colors from "styles/colors";
-import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 
 const Connector: FC = () => {
@@ -12,11 +10,6 @@ const Connector: FC = () => {
     const dataStart = {
         to: "/personal",
         text: isContinue ? "Заново" : "Начать",
-        fontWeight: 800,
-        fontSize: 16,
-        lineHeight: 16,
-        color: colors.whiteColor,
-        background: colors.blueColor,
         isDanger: isContinue,
     };
 

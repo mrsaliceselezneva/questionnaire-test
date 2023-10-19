@@ -13,8 +13,7 @@ const Wrapper = styled.div`
 const Bottom = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 180px;
+    justify-content: center;
 `;
 
 export { Wrapper, Bottom };

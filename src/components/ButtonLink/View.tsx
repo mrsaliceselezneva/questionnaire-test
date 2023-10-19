@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Button } from "antd";
+import { StyledButton } from "./styles";
 
 interface TypeProps {
     text: string;
@@ -19,9 +20,9 @@ const View: FC<TypeProps> = (props: any) => {
     const { text, isDanger, type = "primary", renavigate, ...rest } = props;
 
     return (
-        <Button type={type} danger={isDanger} onClick={renavigate}>
+        <StyledButton type={type} danger={isDanger} onClick={renavigate}>
             {text}
-        </Button>
+        </StyledButton>
     );
 };
 
