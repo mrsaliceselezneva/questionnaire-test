@@ -1,7 +1,12 @@
 {
-  "img": [
+  "personal": [
     {
+      "surname": "Полувесов",
+      "name": "Артём",
+      "patronymic": "Алексеевич",
+      "gender": "мужчина",
       "id": 1
     }
-  ]
+  ],
+  "photo": []
 }

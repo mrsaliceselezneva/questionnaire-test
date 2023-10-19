@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import View from "./View";
 import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
+import { sendRequest } from "api/utils";
+import View from "./View";
 
 const Connector: FC = () => {
     const navigate = useNavigate();
@@ -16,6 +17,8 @@ const Connector: FC = () => {
     const onFinish = (values: any) => {
         cookies.set("route", "/photo");
         console.log("Success:", values);
+        values.id = 1;
+        sendRequest("/personal", "post", values);
         navigate("/photo");
     };
 
@@ -56,8 +59,8 @@ const Connector: FC = () => {
         name: "gender",
         rules: [{ required: true, message: "Пожалуйста, укажите Пол!" }],
         radioList: [
-            { value: "male", title: "муж." },
-            { value: "female", title: "жен." },
+            { value: "мужчина", title: "муж." },
+            { value: "женщина", title: "жен." },
         ],
     };
 
