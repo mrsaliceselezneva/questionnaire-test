@@ -22,7 +22,9 @@ const View: FC<TypeProps> = (props: any) => {
         <Form.Item label={label} name={name} rules={rules}>
             <Radio.Group>
                 {radioList.map((radio) => (
-                    <Radio value={radio.value}> {radio.title} </Radio>
+                    <Radio value={radio.value} key={radio.value}>
+                        {radio.title}
+                    </Radio>
                 ))}
             </Radio.Group>
         </Form.Item>

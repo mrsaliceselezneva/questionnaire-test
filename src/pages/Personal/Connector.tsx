@@ -17,10 +17,7 @@ const Connector: FC = () => {
     const onFinish = (values: any) => {
         cookies.set("route", "/photo");
         console.log("Success:", values);
-        sendRequest("/personal", "get").then((lastIdData) => {
-            values.id = lastIdData[lastIdData.length - 1].id + 1;
-            sendRequest("/personal", "post", values);
-        });
+        sendRequest("/personal", "post", values);
         navigate("/photo");
     };
 
