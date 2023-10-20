@@ -1,9 +1,15 @@
 import React, { FC } from "react";
+import { sendRequest } from "api/utils";
 import View from "./View";
 
 const Connector: FC = () => {
     const onFinish = (values: any) => {
         console.log("Success:", values);
+        values.id = 1;
+        sendRequest("/photo", "get").then((lastIdData) => {
+            values.id = lastIdData[lastIdData.length - 1].id + 1;
+            sendRequest("/photo", "post", values);
+        });
     };
 
     const onFinishFailed = (errorInfo: any) => {
