@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import colors from "styles/colors";
-
 import { FaTelegramPlane } from "react-icons/fa";
 import { SlSocialVkontakte } from "react-icons/sl";
 

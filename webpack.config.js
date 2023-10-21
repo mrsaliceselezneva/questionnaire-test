@@ -38,7 +38,7 @@ module.exports = {
     },
 
     devServer: {
-        port: 3010,
+        port: 3000,
         static: { directory: path.join(__dirname, "./") },
         historyApiFallback: { disableDotRule: true },
     },

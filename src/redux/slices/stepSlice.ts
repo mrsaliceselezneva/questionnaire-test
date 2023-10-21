@@ -1,25 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    nowStep: {
-        title: "",
-        link: "",
-    },
+    nowStep: "",
 };
 
-const profileSlice = createSlice({
-    name: "profileSlice",
+const stepSlice = createSlice({
+    name: "stepSlice",
     initialState,
     reducers: {
-        setCreateProfile(state, action) {
+        setCreateStep(state, action) {
             state.nowStep = action.payload;
         },
-        setDeleteProfile(state) {
-            state.nowStep = { title: "", link: "" };
+        setDeleteStep(state) {
+            state.nowStep = "";
         },
     },
 });
 
-export const { setCreateProfile, setDeleteProfile } = profileSlice.actions;
+export const { setCreateStep, setDeleteStep } = stepSlice.actions;
 
-export default profileSlice.reducer;
+export default stepSlice.reducer;

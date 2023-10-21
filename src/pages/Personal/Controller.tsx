@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 import { sendRequest } from "api/utils";
 import { useDispatch, useSelector } from "react-redux";
+import { setCreateStep, setDeleteStep } from "../../redux/slices/stepSlice";
 import View from "./View";
 
 type formParameterType = {
@@ -55,15 +56,20 @@ const Controller: FC<TypeProps> = (props) => {
     const cookies = new Cookies();
     const { profile } = useSelector((state: any) => state.profileReducer);
 
+    const dispatch = useDispatch();
+
+    const to = "/photo";
+
     const onFinish = (values: any) => {
-        cookies.set("route", "/photo");
+        cookies.set("route", to);
         console.log("Success:", values);
         const sendData = {
             email: profile.email,
             ...values,
         };
         sendRequest("/personal", "post", sendData);
-        navigate("/photo");
+        dispatch(setCreateStep(to));
+        navigate(to);
     };
 
     const onFinishFailed = (errorInfo: any) => {

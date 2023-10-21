@@ -1,22 +1,18 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { Wrapper } from "./styles";
-import Cookies from "cookies-ts";
 import { Steps } from "antd";
-import { sendRequest } from "api/utils";
 
-const View: FC = () => {
-    const cookies = new Cookies();
-    const cookie = cookies.get("route");
+type itemType = {
+    title: string;
+    link: string;
+};
+interface TypeProps {
+    current: number;
+    items: itemType[];
+}
 
-    const [current, setCurrent] = useState();
-    const [items, setItems] = useState();
-
-    useEffect(() => {
-        sendRequest("/steps", "get").then((steps) => {
-            setCurrent(steps.findIndex((item: any) => item.link == cookie));
-            setItems(steps.map((item: any) => ({ key: item.title, title: item.title })));
-        });
-    }, [cookie]);
+const View: FC<TypeProps> = (props) => {
+    const { current, items } = props;
 
     return (
         <Wrapper>

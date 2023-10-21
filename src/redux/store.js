@@ -12,6 +12,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import profileReducer from "./slices/profileSlice";
+import stepReducer from "./slices/stepSlice";
 
 const persistConfig = {
     key: "root",
@@ -19,10 +20,12 @@ const persistConfig = {
 };
 
 const profilePersistedReducer = persistReducer(persistConfig, profileReducer);
+const stepPersistedReducer = persistReducer(persistConfig, stepReducer);
 
 export const store = configureStore({
     reducer: {
         profileReducer: profilePersistedReducer,
+        stepReducer: stepPersistedReducer,
     },
 
     middleware: (getDefaultMiddleware) =>

@@ -1,11 +1,8 @@
 import styled from "styled-components";
-import text from "styles/text";
 import media from "styles/media";
 import { Input } from "antd";
 
-type Props = {};
-
-const StyledDiv = styled.div<Props>`
+const StyledDiv = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -22,7 +19,7 @@ const StyledDiv = styled.div<Props>`
     margin-right: auto;
 `;
 
-const StyledTitle = styled.div<Props>`
+const StyledTitle = styled.div`
     width: 80px;
     justify-content: start;
     box-sizing: border-box;
@@ -31,7 +28,7 @@ const StyledTitle = styled.div<Props>`
     }
 `;
 
-const StyledInput = styled(Input)<Props>`
+const StyledInput = styled(Input)`
     box-sizing: border-box;
 `;
 

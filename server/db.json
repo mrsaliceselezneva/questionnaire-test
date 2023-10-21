@@ -10,5 +10,15 @@
             "title": "Фото",
             "link": "/photo"
         }
+    ],
+    "next-step": [
+        {
+            "fisrt": "/",
+            "second": "/personal"
+        },
+        {
+            "fisrt": "/personal",
+            "second": "/photo"
+        }
     ]
 }

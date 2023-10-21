@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch ./server/db.json --port 3000",
+    "server": "json-server --watch ./server/db.json --port 3030",
     "start": "webpack-dev-server --open",
     "all": "npm-run-all --parallel server start"
   },
