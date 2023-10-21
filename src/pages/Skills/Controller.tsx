@@ -1,9 +1,6 @@
 import React, { FC } from "react";
-import { useNavigate } from "react-router-dom";
-import Cookies from "cookies-ts";
-import { useDispatch, useSelector } from "react-redux";
-import { setCreateStep } from "../../redux/slices/stepSlice";
 import { sendRequest } from "api/utils";
+import { useSelector } from "react-redux";
 import View from "./View";
 
 type formParameterType = {
@@ -11,12 +8,6 @@ type formParameterType = {
     labelCol: object;
     wrapperCol: object;
     autoComplete: string;
-};
-
-type dataFormUploadType = {
-    label: string;
-    name: string;
-    rules: any;
 };
 
 type dataFormButtonType = {
@@ -28,24 +19,17 @@ type dataCancelType = {
     text: string;
     isDanger: boolean;
 };
+
 interface TypeProps {
     formParameter: formParameterType;
     dataButton: dataFormButtonType;
-    dataUpload: dataFormUploadType;
     dataCancel: dataCancelType;
 }
 
 const Controller: FC<TypeProps> = (props) => {
-    const { formParameter, dataButton, dataUpload, dataCancel } = props;
-
-    const navigate = useNavigate();
-    const cookies = new Cookies();
-
-    const dispatch = useDispatch();
+    const { formParameter, dataButton, dataCancel } = props;
 
     const { profile } = useSelector((state: any) => state.profileReducer);
-
-    const to = "/skills";
 
     const onFinish = (values: any) => {
         console.log("Success:", values);
@@ -53,10 +37,7 @@ const Controller: FC<TypeProps> = (props) => {
             email: profile.email,
             ...values,
         };
-        sendRequest("/photo", "post", sendData);
-        cookies.set("route", to);
-        dispatch(setCreateStep(to));
-        navigate(to);
+        // sendRequest("/photo", "post", sendData);
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -65,14 +46,7 @@ const Controller: FC<TypeProps> = (props) => {
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };
 
-    return (
-        <View
-            formParameter={formFunction}
-            dataButton={dataButton}
-            dataUpload={dataUpload}
-            dataCancel={dataCancel}
-        />
-    );
+    return <View formParameter={formFunction} dataButton={dataButton} dataCancel={dataCancel} />;
 };
 
 export default Controller;

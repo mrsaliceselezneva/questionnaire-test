@@ -25,7 +25,7 @@
             "api": ["src/api"],
             "pages": ["src/pages"],
             "baseUrl": ["src"],
-            "store": ["src/redux"],
+            "store": ["src/redux/"],
             "styles": ["src/styles"]
         }
     },

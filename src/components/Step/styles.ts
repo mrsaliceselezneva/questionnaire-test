@@ -6,6 +6,7 @@ const Wrapper = styled.div`
     flex-direction: row;
     justify-content: left;
     align-items: center;
+    margin-bottom: 30px;
     ${adaptiveWidth}
 `;
 
