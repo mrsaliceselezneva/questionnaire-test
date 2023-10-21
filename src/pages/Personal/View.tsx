@@ -32,6 +32,7 @@ type dataCancelType = {
     to: string;
     text: string;
     isDanger: boolean;
+    click?: any;
 };
 interface TypeProps {
     formParameter: formParameterType;

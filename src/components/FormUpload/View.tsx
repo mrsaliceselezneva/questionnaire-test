@@ -40,7 +40,6 @@ const View: FC<TypeProps> = (props: any) => {
         <>
             <Form.Item name={name} label={label} rules={rules}>
                 <Upload
-                    action='http://localhost:3000/img'
                     listType='picture-card'
                     fileList={fileList}
                     onPreview={handlePreview}
@@ -49,7 +48,7 @@ const View: FC<TypeProps> = (props: any) => {
                         return false;
                     }}
                 >
-                    {fileList.length > 0 ? null : uploadButton}
+                    {!(fileList.length > 0) && uploadButton}
                 </Upload>
             </Form.Item>
             <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>

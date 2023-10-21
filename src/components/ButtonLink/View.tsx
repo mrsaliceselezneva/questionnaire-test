@@ -13,6 +13,7 @@ interface TypeProps {
     backgroundActive?: string;
     isDanger?: boolean;
     type?: string;
+    click?: any;
     renavigate: any;
 }
 

@@ -1,19 +1,14 @@
 import React, { FC } from "react";
-import { StyledDiv, StyledTitle, StyledInput } from "./styles";
-import { Button, Checkbox, Form, Input, Radio } from "antd";
+import { Form, Radio } from "antd";
+
+type radioType = { value: string; title: string };
 
 interface TypeProps {
     label?: string;
     name?: string;
     rules?: any;
-    radioList?: { value: string; title: string }[];
+    radioList?: radioType[];
 }
-
-type FieldType = {
-    surname?: string;
-    name?: string;
-    patronymic?: string;
-};
 
 const View: FC<TypeProps> = (props: any) => {
     const { label, name, rules, radioList } = props;
@@ -21,7 +16,7 @@ const View: FC<TypeProps> = (props: any) => {
     return (
         <Form.Item label={label} name={name} rules={rules}>
             <Radio.Group>
-                {radioList.map((radio) => (
+                {radioList.map((radio: radioType) => (
                     <Radio value={radio.value} key={radio.value}>
                         {radio.title}
                     </Radio>

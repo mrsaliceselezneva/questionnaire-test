@@ -2,6 +2,8 @@ import styled from "styled-components";
 import size from "styles/size";
 import adaptiveWidth from "styles/adaptiveWidth";
 import colors from "styles/colors";
+import { GoogleOutlined } from "@ant-design/icons";
+import { BiLogoGoogle } from "react-icons/bi";
 
 const Wrapper = styled.div`
     display: flex;
@@ -21,4 +23,28 @@ const Header = styled.div`
     ${adaptiveWidth}
 `;
 
-export { Wrapper, Header };
+const Google = styled(BiLogoGoogle)`
+    color: ${colors.whiteColor};
+    border-radius: 8px;
+    height: ${size.headerHeight * 0.6}px;
+    width: ${size.headerHeight * 0.6}px;
+    margin-right: 0;
+    margin-left: auto;
+    cursor: pointer;
+
+    &:hover {
+        color: ${colors.blackColor};
+        background-color: ${colors.whiteColor};
+    }
+`;
+
+const Img = styled.img`
+    border-radius: 8px;
+    height: ${size.headerHeight * 0.6}px;
+    width: ${size.headerHeight * 0.6}px;
+    margin-right: 0;
+    margin-left: auto;
+    cursor: pointer;
+`;
+
+export { Wrapper, Header, Google, Img };

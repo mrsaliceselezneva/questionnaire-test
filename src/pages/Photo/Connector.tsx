@@ -1,23 +1,11 @@
 import React, { FC } from "react";
-import { sendRequest } from "api/utils";
-import View from "./View";
+import Controller from "./Controller";
 
 const Connector: FC = () => {
-    const onFinish = (values: any) => {
-        console.log("Success:", values);
-        sendRequest("/photo", "post", values);
-    };
-
-    const onFinishFailed = (errorInfo: any) => {
-        console.log("Failed:", errorInfo);
-    };
-
     const formParameter = {
         name: "basic",
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
-        onFinish: onFinish,
-        onFinishFailed: onFinishFailed,
         autoComplete: "off",
     };
 
@@ -38,7 +26,7 @@ const Connector: FC = () => {
     };
 
     return (
-        <View
+        <Controller
             formParameter={formParameter}
             dataButton={dataButton}
             dataUpload={dataUpload}

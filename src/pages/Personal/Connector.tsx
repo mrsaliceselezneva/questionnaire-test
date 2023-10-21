@@ -1,37 +1,11 @@
 import React, { FC } from "react";
-import { useNavigate } from "react-router-dom";
-import Cookies from "cookies-ts";
-import { sendRequest } from "api/utils";
-import View from "./View";
+import Controller from "./Controller";
 
 const Connector: FC = () => {
-    const navigate = useNavigate();
-    const cookies = new Cookies();
-
-    const dataCancel = {
-        to: "/",
-        text: "Отмена",
-        isDanger: true,
-    };
-
-    const onFinish = (values: any) => {
-        cookies.set("route", "/photo");
-        console.log("Success:", values);
-        sendRequest("/personal", "post", values);
-        navigate("/photo");
-    };
-
-    const onFinishFailed = (errorInfo: any) => {
-        console.log(cookies.get("route"));
-        console.log("Failed:", errorInfo);
-    };
-
     const formParameter = {
         name: "basic",
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
-        onFinish: onFinish,
-        onFinishFailed: onFinishFailed,
         autoComplete: "off",
     };
 
@@ -63,12 +37,18 @@ const Connector: FC = () => {
         ],
     };
 
+    const dataCancel = {
+        to: "/",
+        text: "Отмена",
+        isDanger: true,
+    };
+
     const dataButton = {
         title: "Вперёд",
     };
 
     return (
-        <View
+        <Controller
             formParameter={formParameter}
             dataSurname={dataSurname}
             dataName={dataName}

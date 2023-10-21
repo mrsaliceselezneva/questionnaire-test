@@ -1,46 +1,31 @@
 import React, { FC } from "react";
 import { Wrapper, Info, Footer } from "./styles";
-import colors from "styles/colors";
 import FooterIcon from "components/FooterIcon";
 import InfoText from "components/InfoText";
 
+type dataTextType = {
+    text: string;
+    fontWeight: number;
+    fontSize: number;
+    lineHeight: number;
+    color: string;
+    margin?: number;
+    isLink: boolean;
+};
+
+type dataLinkType = {
+    link: string;
+    isVk: boolean;
+};
 interface TypeProps {
-    name: string;
-    phone: string;
-    linkTg: string;
-    linkVk: string;
+    dataName: dataTextType;
+    dataPhone: dataTextType;
+    dataTg: dataLinkType;
+    dataVk: dataLinkType;
 }
 
 const View: FC<TypeProps> = (props: any) => {
-    const { name, phone, linkTg, linkVk } = props;
-
-    const dataName = {
-        text: name,
-        fontWeight: 500,
-        fontSize: 17,
-        lineHeight: 16,
-        color: colors.blueColor,
-        margin: 5,
-        isLink: false,
-    };
-
-    const dataPhone = {
-        text: phone,
-        fontWeight: 600,
-        fontSize: 17,
-        lineHeight: 16,
-        color: colors.blueColor,
-        isLink: false,
-    };
-
-    const dataVk = {
-        link: linkVk,
-        isVk: true,
-    };
-    const dataTg = {
-        link: linkTg,
-        isVk: false,
-    };
+    const { dataName, dataPhone, dataTg, dataVk } = props;
 
     return (
         <Wrapper>

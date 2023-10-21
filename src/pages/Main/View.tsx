@@ -5,13 +5,6 @@ import Wrapper from "./styles";
 type dataType = {
     to: string;
     text: string;
-    fontWeight?: number;
-    fontSize?: number;
-    lineHeight?: number;
-    color?: string;
-    background?: string;
-    backgroundHover?: string;
-    backgroundActive?: string;
     isDanger?: boolean;
     type?: string;
 };
@@ -24,7 +17,6 @@ interface TypeProps {
 
 const View: FC<TypeProps> = (props) => {
     const { dataStart, dataContinue, isContinue } = props;
-    console.log(isContinue);
 
     return (
         <Wrapper>

@@ -11,19 +11,18 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import routeReducer from "./slices/routeSlice";
+import profileReducer from "./slices/profileSlice";
 
 const persistConfig = {
     key: "root",
     storage,
 };
 
-const routePersistedReducer = persistReducer(persistConfig, routeReducer);
+const profilePersistedReducer = persistReducer(persistConfig, profileReducer);
 
 export const store = configureStore({
     reducer: {
-        routeReducer: routePersistedReducer,
-        changeReducer,
+        profileReducer: profilePersistedReducer,
     },
 
     middleware: (getDefaultMiddleware) =>
