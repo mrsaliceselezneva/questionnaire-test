@@ -1,12 +1,10 @@
 import React, { FC } from "react";
-import type { SelectProps } from "antd";
 import Controller from "./Controller";
 
 const Connector: FC = () => {
     const formParameter = {
         name: "basic",
-        labelCol: { span: 8 },
-        wrapperCol: { span: 16 },
+        style: { width: "100%" },
         autoComplete: "off",
     };
 
@@ -19,10 +17,19 @@ const Connector: FC = () => {
         text: "Отмена",
         isDanger: true,
     };
-    console.log("controller");
+
+    const dataSelect = {
+        label: "Укажите навыки",
+        name: "select",
+    };
 
     return (
-        <Controller formParameter={formParameter} dataButton={dataButton} dataCancel={dataCancel} />
+        <Controller
+            dataSelect={dataSelect}
+            formParameter={formParameter}
+            dataButton={dataButton}
+            dataCancel={dataCancel}
+        />
     );
 };
 

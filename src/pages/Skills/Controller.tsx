@@ -5,8 +5,9 @@ import View from "./View";
 
 type formParameterType = {
     name: string;
-    labelCol: object;
-    wrapperCol: object;
+    labelCol?: object;
+    wrapperCol?: object;
+    style?: object;
     autoComplete: string;
 };
 
@@ -20,14 +21,20 @@ type dataCancelType = {
     isDanger: boolean;
 };
 
+type dataSelectType = {
+    label: string;
+    name: string;
+};
+
 interface TypeProps {
+    dataSelect: dataSelectType;
     formParameter: formParameterType;
     dataButton: dataFormButtonType;
     dataCancel: dataCancelType;
 }
 
 const Controller: FC<TypeProps> = (props) => {
-    const { formParameter, dataButton, dataCancel } = props;
+    const { dataSelect, formParameter, dataButton, dataCancel } = props;
 
     const { profile } = useSelector((state: any) => state.profileReducer);
 
@@ -37,7 +44,8 @@ const Controller: FC<TypeProps> = (props) => {
             email: profile.email,
             ...values,
         };
-        // sendRequest("/photo", "post", sendData);
+        console.log(sendData);
+        sendRequest("/skills", "post", sendData);
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -46,7 +54,14 @@ const Controller: FC<TypeProps> = (props) => {
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };
 
-    return <View formParameter={formFunction} dataButton={dataButton} dataCancel={dataCancel} />;
+    return (
+        <View
+            dataSelect={dataSelect}
+            formParameter={formFunction}
+            dataButton={dataButton}
+            dataCancel={dataCancel}
+        />
+    );
 };
 
 export default Controller;

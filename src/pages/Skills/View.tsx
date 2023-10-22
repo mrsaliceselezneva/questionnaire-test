@@ -1,21 +1,15 @@
 import React, { FC } from "react";
-import type { SelectProps } from "antd";
-import { Select, Space, Form } from "antd";
+import { Form } from "antd";
 import FormButton from "components/FormButton";
 import ButtonLink from "components/ButtonLink";
 import { Wrapper, Bottom } from "./styles";
-const options: SelectProps["options"] = [];
+import FormSelect from "components/FormSelect";
 
-for (let i = 10; i < 36; i++) {
-    options.push({
-        label: i.toString(36) + i,
-        value: i.toString(36) + i,
-    });
-}
 type formParameterType = {
     name: string;
-    labelCol: object;
-    wrapperCol: object;
+    labelCol?: object;
+    wrapperCol?: object;
+    style?: object;
     onFinish: any;
     onFinishFailed: any;
     autoComplete: string;
@@ -31,27 +25,25 @@ type dataCancelType = {
     isDanger: boolean;
 };
 
+type dataSelectType = {
+    label: string;
+    name: string;
+};
+
 interface TypeProps {
+    dataSelect: dataSelectType;
     formParameter: formParameterType;
     dataButton: dataButtonType;
     dataCancel: dataCancelType;
 }
 
 const View: FC<TypeProps> = (props: any) => {
-    const { formParameter, dataButton, dataCancel } = props;
+    const { dataSelect, formParameter, dataButton, dataCancel } = props;
 
     return (
         <Wrapper>
-            <Space style={{ width: "100%" }} direction='vertical'>
-                <Select
-                    mode='multiple'
-                    allowClear
-                    style={{ width: "100%" }}
-                    placeholder='Укажите навыки'
-                    options={options}
-                />
-            </Space>
             <Form {...formParameter}>
+                <FormSelect dataSelect={dataSelect} />
                 <Bottom>
                     <ButtonLink data={dataCancel} />
                     <FormButton {...dataButton} />
