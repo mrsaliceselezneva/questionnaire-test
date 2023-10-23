@@ -10,6 +10,7 @@ type optionType = {
 
 const options: SelectProps["options"] = [];
 
+//TODO: не очень хорошая практика, лучше это перенести в useEffect внутри компонента
 sendRequest("/skills-all", "get").then((data) => {
     data.forEach((option: optionType) => {
         options.push(option);

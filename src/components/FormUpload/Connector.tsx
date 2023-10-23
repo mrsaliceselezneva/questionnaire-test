@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import type { UploadFile } from "antd/es/upload/interface";
 import type { RcFile, UploadProps } from "antd/es/upload";
 
+//TODO: создать файл хелпер и перенести туда
 const getBase64 = (file: RcFile): Promise<string> =>
     new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -33,11 +34,14 @@ const Connector: FC<TypeProps> = (props) => {
 
     const handlePreview = async (file: UploadFile) => {
         if (!file.url && !file.preview) {
+            //TODO: попробуй избавиться от as RcFile
             file.preview = await getBase64(file.originFileObj as RcFile);
         }
 
+        //TODO: попробуй избавиться as string
         setPreviewImage(file.url || (file.preview as string));
         setPreviewOpen(true);
+        //TODO: использовать "!" не очень хорошо, лучше написать условие
         setPreviewTitle(file.name || file.url!.substring(file.url!.lastIndexOf("/") + 1));
     };
 

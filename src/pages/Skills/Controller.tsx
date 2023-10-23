@@ -53,6 +53,7 @@ const Controller: FC<TypeProps> = (props) => {
         };
         const nowStep = "/skills";
         sendRequest("next-step", "get").then((data) => {
+            //TODO: повторение
             const to = data.find((item: any) => item.first === nowStep).second;
             cookies.set("route", to);
             dispatch(setCreateStep(to));

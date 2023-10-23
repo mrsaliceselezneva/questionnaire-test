@@ -67,6 +67,7 @@ const Controller: FC<TypeProps> = (props) => {
 
         const nowStep = "/personal";
         sendRequest("next-step", "get").then((data) => {
+            //TODO: тоже повторяется в нескольких местах, попробуй вынести в хелпер
             const to = data.find((item: any) => item.first === nowStep).second;
             cookies.set("route", to);
             dispatch(setCreateStep(to));

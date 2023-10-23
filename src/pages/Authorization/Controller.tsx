@@ -11,6 +11,7 @@ const Controller: FC = () => {
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => {
             console.log("Login Success:", codeResponse);
+            //TODO: повторяется в другом файле, нужно вынести и переиспользовать
             axios
                 .get(
                     `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${codeResponse.access_token}`,

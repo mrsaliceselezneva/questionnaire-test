@@ -32,6 +32,7 @@ const View: FC<TypeProps> = (props: any) => {
     const uploadButton = (
         <div>
             <PlusOutlined />
+            {/* //TODO: использовать styled component  */}
             <div style={{ marginTop: 8 }}>Загрузить</div>
         </div>
     );
@@ -52,6 +53,7 @@ const View: FC<TypeProps> = (props: any) => {
                 </Upload>
             </Form.Item>
             <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
+                {/* //TODO: использовать styled component  */}
                 <img alt='фото профиля' style={{ width: "100%" }} src={previewImage} />
             </Modal>
         </>
