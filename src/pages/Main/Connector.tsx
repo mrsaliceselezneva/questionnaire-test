@@ -1,7 +1,6 @@
-import React, { FC, useEffect, useState } from "react";
-import View from "./View";
+import React, { FC } from "react";
 import Cookies from "cookies-ts";
-import { sendRequest } from "api/utils";
+import View from "./View";
 
 const Connector: FC = () => {
     const cookies = new Cookies();

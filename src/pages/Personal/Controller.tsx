@@ -58,18 +58,21 @@ const Controller: FC<TypeProps> = (props) => {
 
     const dispatch = useDispatch();
 
-    const to = "/photo";
-
     const onFinish = (values: any) => {
         console.log("Success:", values);
         const sendData = {
             email: profile.email,
             ...values,
         };
-        sendRequest("/personal", "post", sendData);
-        cookies.set("route", to);
-        dispatch(setCreateStep(to));
-        navigate(to);
+
+        const nowStep = "/personal";
+        sendRequest("next-step", "get").then((data) => {
+            const to = data.find((item: any) => item.first === nowStep).second;
+            cookies.set("route", to);
+            dispatch(setCreateStep(to));
+            navigate(to);
+        });
+        sendRequest(nowStep, "post", sendData);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };

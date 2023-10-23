@@ -51,14 +51,14 @@ const Controller: FC<TypeProps> = (props) => {
             email: profile.email,
             ...values,
         };
-        console.log(sendData);
+        const nowStep = "/skills";
         sendRequest("next-step", "get").then((data) => {
-            const to = data.find((item: any) => item.first === "/skills").second;
+            const to = data.find((item: any) => item.first === nowStep).second;
             cookies.set("route", to);
             dispatch(setCreateStep(to));
             navigate(to);
         });
-        sendRequest("/skills", "post", sendData);
+        sendRequest(nowStep, "post", sendData);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };

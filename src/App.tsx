@@ -13,6 +13,7 @@ import React, { FC } from "react";
 
 const App: FC = () => {
     const { profile } = useSelector((state: any) => state.profileReducer);
+    const { nowStep } = useSelector((state: any) => state.stepReducer);
 
     const isAuthorization = profile.email.length > 0;
 
@@ -23,10 +24,14 @@ const App: FC = () => {
             <Routes>
                 {isAuthorization ? (
                     <>
-                        <Route path='/personal' element={<Personal />} />
-                        <Route path='/photo' element={<Photo />} />
-                        <Route path='/skills' element={<Skills />} />
-                        <Route path='/about' element={<About />} />
+                        {nowStep != "/" && (
+                            <>
+                                <Route path='/personal' element={<Personal />} />
+                                <Route path='/photo' element={<Photo />} />
+                                <Route path='/skills' element={<Skills />} />
+                                <Route path='/about' element={<About />} />
+                            </>
+                        )}
                         <Route path='/*' element={<Main />} />
                     </>
                 ) : (

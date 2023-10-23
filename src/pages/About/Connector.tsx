@@ -9,7 +9,7 @@ const Connector: FC = () => {
     };
 
     const dataButton = {
-        title: "Вперёд",
+        title: "Завершить",
     };
 
     const dataCancel = {

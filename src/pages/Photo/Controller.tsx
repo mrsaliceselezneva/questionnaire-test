@@ -51,13 +51,14 @@ const Controller: FC<TypeProps> = (props) => {
             email: profile.email,
             ...values,
         };
+        const nowStep = "/photo";
         sendRequest("next-step", "get").then((data) => {
-            const to = data.find((item: any) => item.first === "/photo").second;
+            const to = data.find((item: any) => item.first === nowStep).second;
             cookies.set("route", to);
             dispatch(setCreateStep(to));
             navigate(to);
         });
-        sendRequest("/photo", "post", sendData);
+        sendRequest(nowStep, "post", sendData);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };

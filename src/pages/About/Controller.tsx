@@ -1,6 +1,10 @@
 import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
+import Cookies from "cookies-ts";
 import { sendRequest, onFinishFailed } from "api/utils";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setCreateStep } from "../../redux/slices/stepSlice";
+import { Button, message, Steps, theme } from "antd";
 import View from "./View";
 
 type formParameterType = {
@@ -37,7 +41,11 @@ interface TypeProps {
 const Controller: FC<TypeProps> = (props) => {
     const { dataTextArea, formParameter, dataButton, dataCancel } = props;
 
+    const navigate = useNavigate();
+    const cookies = new Cookies();
     const { profile } = useSelector((state: any) => state.profileReducer);
+
+    const dispatch = useDispatch();
 
     const onFinish = (values: any) => {
         console.log("Success:", values);
@@ -45,8 +53,17 @@ const Controller: FC<TypeProps> = (props) => {
             email: profile.email,
             ...values,
         };
-        console.log(sendData);
-        // sendRequest("/about", "post", sendData);
+        message.success("Форма отправлена!");
+        setTimeout(() => {
+            const nowStep = "/about";
+            sendRequest("next-step", "get").then((data) => {
+                const to = data.find((item: any) => item.first === nowStep).second;
+                cookies.set("route", to);
+                dispatch(setCreateStep(to));
+                navigate(to);
+            });
+            sendRequest(nowStep, "post", sendData);
+        }, 5000);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };
