@@ -2,7 +2,6 @@ import styled from "styled-components";
 import size from "styles/size";
 import adaptiveWidth from "styles/adaptiveWidth";
 import colors from "styles/colors";
-import { GoogleOutlined } from "@ant-design/icons";
 import { BiLogoGoogle } from "react-icons/bi";
 
 const Wrapper = styled.div`
@@ -21,6 +20,7 @@ const Header = styled.div`
     justify-content: left;
     align-items: center;
     ${adaptiveWidth}
+    width: 100%;
 `;
 
 const Google = styled(BiLogoGoogle)`
