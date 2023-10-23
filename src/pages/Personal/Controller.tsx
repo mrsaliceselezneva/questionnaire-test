@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
-import { sendRequest } from "api/utils";
+import { onFinishFailed, sendRequest } from "api/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { setCreateStep } from "../../redux/slices/stepSlice";
 import View from "./View";
@@ -70,11 +70,6 @@ const Controller: FC<TypeProps> = (props) => {
         cookies.set("route", to);
         dispatch(setCreateStep(to));
         navigate(to);
-    };
-
-    const onFinishFailed = (errorInfo: any) => {
-        console.log(cookies.get("route"));
-        console.log("Failed:", errorInfo);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };

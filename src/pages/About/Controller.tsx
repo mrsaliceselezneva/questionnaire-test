@@ -1,9 +1,6 @@
 import React, { FC } from "react";
 import { sendRequest, onFinishFailed } from "api/utils";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Cookies from "cookies-ts";
-import { setCreateStep } from "../../redux/slices/stepSlice";
+import { useSelector } from "react-redux";
 import View from "./View";
 
 type formParameterType = {
@@ -24,24 +21,21 @@ type dataCancelType = {
     isDanger: boolean;
 };
 
-type dataSelectType = {
+type dataTextAreaType = {
     label: string;
     name: string;
+    rows: number;
 };
 
 interface TypeProps {
-    dataSelect: dataSelectType;
+    dataTextArea: dataTextAreaType;
     formParameter: formParameterType;
     dataButton: dataFormButtonType;
     dataCancel: dataCancelType;
 }
 
 const Controller: FC<TypeProps> = (props) => {
-    const { dataSelect, formParameter, dataButton, dataCancel } = props;
-
-    const navigate = useNavigate();
-    const cookies = new Cookies();
-    const dispatch = useDispatch();
+    const { dataTextArea, formParameter, dataButton, dataCancel } = props;
 
     const { profile } = useSelector((state: any) => state.profileReducer);
 
@@ -52,20 +46,14 @@ const Controller: FC<TypeProps> = (props) => {
             ...values,
         };
         console.log(sendData);
-        sendRequest("next-step", "get").then((data) => {
-            const to = data.find((item: any) => item.first === "/skills").second;
-            cookies.set("route", to);
-            dispatch(setCreateStep(to));
-            navigate(to);
-        });
-        sendRequest("/skills", "post", sendData);
+        // sendRequest("/about", "post", sendData);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };
 
     return (
         <View
-            dataSelect={dataSelect}
+            dataTextArea={dataTextArea}
             formParameter={formFunction}
             dataButton={dataButton}
             dataCancel={dataCancel}
