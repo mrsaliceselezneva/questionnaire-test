@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
-import { onFinishFailed, sendRequest } from "api/utils";
+import { sendRequest } from "api/utils";
+import { onFinishFailed, useTo } from "api/helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { setCreateStep } from "../../redux/slices/stepSlice";
 import View from "./View";
@@ -67,7 +68,7 @@ const Controller: FC<TypeProps> = (props) => {
 
         const nowStep = "/personal";
         sendRequest("next-step", "get").then((data) => {
-            const to = data.find((item: any) => item.first === nowStep).second;
+            const to = useTo(data, nowStep);
             cookies.set("route", to);
             dispatch(setCreateStep(to));
             navigate(to);

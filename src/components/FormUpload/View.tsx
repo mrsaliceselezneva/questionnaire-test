@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Upload, Form, Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
+import { StyledUpload, StyledImg } from "./styles";
 
 interface TypeProps {
     label: string;
@@ -32,7 +33,7 @@ const View: FC<TypeProps> = (props: any) => {
     const uploadButton = (
         <div>
             <PlusOutlined />
-            <div style={{ marginTop: 8 }}>Загрузить</div>
+            <StyledUpload>Загрузить</StyledUpload>
         </div>
     );
 
@@ -52,7 +53,7 @@ const View: FC<TypeProps> = (props: any) => {
                 </Upload>
             </Form.Item>
             <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel}>
-                <img alt='фото профиля' style={{ width: "100%" }} src={previewImage} />
+                <StyledImg alt='фото профиля' src={previewImage} />
             </Modal>
         </>
     );

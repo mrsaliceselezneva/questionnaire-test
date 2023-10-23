@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { sendRequest, onFinishFailed } from "api/utils";
+import { sendRequest } from "api/utils";
+import { onFinishFailed, useTo } from "api/helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
@@ -53,7 +54,7 @@ const Controller: FC<TypeProps> = (props) => {
         };
         const nowStep = "/skills";
         sendRequest("next-step", "get").then((data) => {
-            const to = data.find((item: any) => item.first === nowStep).second;
+            const to = useTo(data, nowStep);
             cookies.set("route", to);
             dispatch(setCreateStep(to));
             navigate(to);

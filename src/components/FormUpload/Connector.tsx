@@ -1,15 +1,8 @@
-import View from "./View";
 import React, { FC, useState } from "react";
+import { getBase64 } from "api/helpers";
 import type { UploadFile } from "antd/es/upload/interface";
 import type { RcFile, UploadProps } from "antd/es/upload";
-
-const getBase64 = (file: RcFile): Promise<string> =>
-    new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = (error) => reject(error);
-    });
+import View from "./View";
 
 type dataFormUploadType = {
     label: string;
@@ -38,7 +31,8 @@ const Connector: FC<TypeProps> = (props) => {
 
         setPreviewImage(file.url || (file.preview as string));
         setPreviewOpen(true);
-        setPreviewTitle(file.name || file.url!.substring(file.url!.lastIndexOf("/") + 1));
+        if (file.url)
+            setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf("/") + 1));
     };
 
     const handleChange: UploadProps["onChange"] = ({ fileList: newFileList }) =>

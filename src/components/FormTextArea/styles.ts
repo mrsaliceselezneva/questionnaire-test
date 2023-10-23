@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import media from "styles/media";
+import desktop from "styles/desktop";
 import { Input } from "antd";
 
 const StyledDiv = styled.div`
@@ -9,10 +9,10 @@ const StyledDiv = styled.div`
     margin-bottom: 10px;
     width: 60%;
     box-sizing: border-box;
-    @media (max-width: ${media.media3}) {
+    @desktop (max-width: ${desktop.desktop3}) {
         width: 80%;
     }
-    @media (max-width: ${media.media4}) {
+    @desktop (max-width: ${desktop.desktop4}) {
         flex-direction: column;
     }
     margin-left: auto;
@@ -23,7 +23,7 @@ const StyledTitle = styled.div`
     width: 80px;
     justify-content: start;
     box-sizing: border-box;
-    @media (max-width: ${media.media4}) {
+    @desktop (max-width: ${desktop.desktop4}) {
         width: 100%;
     }
 `;

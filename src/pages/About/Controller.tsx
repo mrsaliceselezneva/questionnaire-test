@@ -1,10 +1,11 @@
 import React, { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
-import { sendRequest, onFinishFailed } from "api/utils";
+import { sendRequest } from "api/utils";
+import { onFinishFailed, useTo } from "api/helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { setCreateStep } from "../../redux/slices/stepSlice";
-import { Button, message, Steps, theme } from "antd";
+import { message } from "antd";
 import View from "./View";
 
 type formParameterType = {
@@ -57,7 +58,7 @@ const Controller: FC<TypeProps> = (props) => {
         setTimeout(() => {
             const nowStep = "/about";
             sendRequest("next-step", "get").then((data) => {
-                const to = data.find((item: any) => item.first === nowStep).second;
+                const to = useTo(data, nowStep);
                 cookies.set("route", to);
                 dispatch(setCreateStep(to));
                 navigate(to);
