@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { Select, Form } from "antd";
+import { Select, Form, SelectProps } from "antd";
 
 interface TypeProps {
     label: string;
     name: string;
-    options: any;
+    options: SelectProps["options"];
 }
 
 const View: FC<TypeProps> = (props: any) => {

@@ -14,13 +14,17 @@ type formParameterType = {
     autoComplete: string;
 };
 
-type dataFormInputType = { label: string; name: string; rules: any };
+type ruleType = { required: boolean; message: string };
+
+type dataFormInputType = { label: string; name: string; rules: ruleType[] };
+
+type radioType = { value: string; title: string };
 
 type dataRadioType = {
     label: string;
     name: string;
-    rules: any;
-    radioList: { value: string; title: string }[];
+    rules: ruleType[];
+    radioList: radioType[];
 };
 
 type dataButtonType = {

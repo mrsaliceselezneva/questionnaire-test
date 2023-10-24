@@ -1,13 +1,12 @@
 import React, { FC } from "react";
-import { Form } from "antd";
-import { StyledForm } from "./styles";
 import { Button } from "antd";
+import { StyledForm } from "./styles";
 
 interface TypeProps {
     title: string;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { title } = props;
 
     return (

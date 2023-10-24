@@ -5,8 +5,7 @@ interface TypeProps {
     text: string;
     isDanger?: boolean;
     type?: string;
-    click?: any;
-    renavigate: any;
+    renavigate: () => void;
 }
 
 const View: FC<TypeProps> = (props: any) => {

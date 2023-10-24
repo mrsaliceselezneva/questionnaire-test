@@ -6,7 +6,7 @@ interface TypeProps {
     isVk: boolean;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { link, isVk } = props;
 
     const icon = isVk ? <IconVk /> : <IconTg />;

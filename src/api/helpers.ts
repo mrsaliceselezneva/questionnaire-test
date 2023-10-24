@@ -1,12 +1,8 @@
 import type { RcFile } from "antd/es/upload";
 import axios from "axios";
-import { sendRequest } from "api/utils";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import { setCreateProfile, setDeleteProfile } from "../redux/slices/profileSlice";
-import { setCreateStep } from "../redux/slices/stepSlice";
-import { useNavigate } from "react-router-dom";
-import Cookies from "cookies-ts";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const onFinishFailed = (errorInfo: any) => {
     console.log(errorInfo);

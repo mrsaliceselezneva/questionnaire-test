@@ -3,7 +3,7 @@ import Wrapper from "./styles";
 import { Button } from "antd";
 import { BiLogoGoogle } from "react-icons/bi";
 interface TypeProps {
-    login: any;
+    login: () => void;
 }
 
 const View: FC<TypeProps> = (props) => {

@@ -1,22 +1,25 @@
 import React, { FC } from "react";
 import { Upload, Form, Modal } from "antd";
+import type { UploadFile } from "antd/es/upload/interface";
+import type { UploadProps } from "antd/es/upload";
 import { PlusOutlined } from "@ant-design/icons";
 import { StyledUpload, StyledImg } from "./styles";
 
+type ruleType = { required: boolean; message: string };
 interface TypeProps {
     label: string;
     name: string;
-    rules: any;
-    fileList: any;
-    handlePreview: any;
-    handleChange: any;
-    previewOpen: any;
-    previewTitle: any;
-    handleCancel: any;
-    previewImage: any;
+    rules: ruleType[];
+    fileList: UploadFile[];
+    handlePreview: (file: UploadFile) => void;
+    handleChange: UploadProps["onChange"];
+    previewOpen: boolean;
+    previewTitle: string;
+    handleCancel: () => void;
+    previewImage: string;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const {
         label,
         name,

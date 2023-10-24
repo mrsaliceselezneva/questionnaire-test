@@ -20,8 +20,8 @@ interface TypeProps {
     dataText: dataTextType;
     isEmptyProfile: boolean;
     picture: string;
-    logout: any;
-    login: any;
+    logout: () => void;
+    login: () => void;
 }
 
 const View: FC<TypeProps> = (props) => {

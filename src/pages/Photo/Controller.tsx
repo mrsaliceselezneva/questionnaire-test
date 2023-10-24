@@ -14,10 +14,15 @@ type formParameterType = {
     autoComplete: string;
 };
 
+type ruleType = {
+    required: boolean;
+    message: string;
+};
+
 type dataFormUploadType = {
     label: string;
     name: string;
-    rules: any;
+    rules: ruleType[];
 };
 
 type dataFormButtonType = {

@@ -9,15 +9,20 @@ type formParameterType = {
     name: string;
     labelCol: object;
     wrapperCol: object;
-    onFinish: any;
-    onFinishFailed: any;
+    onFinish: (values: any) => void;
+    onFinishFailed: (values: any) => void;
     autoComplete: string;
+};
+
+type ruleType = {
+    required: boolean;
+    message: string;
 };
 
 type dataFormUploadType = {
     label: string;
     name: string;
-    rules: any;
+    rules: ruleType[];
 };
 
 type dataFormButtonType = {

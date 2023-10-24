@@ -64,7 +64,7 @@ const Controller: FC<TypeProps> = (props) => {
                 navigate(to);
             });
             sendRequest(nowStep, "post", sendData);
-        }, 5000);
+        }, 3000);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };

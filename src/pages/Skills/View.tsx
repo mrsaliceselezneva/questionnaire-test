@@ -10,8 +10,8 @@ type formParameterType = {
     labelCol?: object;
     wrapperCol?: object;
     style?: object;
-    onFinish: any;
-    onFinishFailed: any;
+    onFinish: (values: any) => void;
+    onFinishFailed: (values: any) => void;
     autoComplete: string;
 };
 
@@ -37,7 +37,7 @@ interface TypeProps {
     dataCancel: dataCancelType;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { dataSelect, formParameter, dataButton, dataCancel } = props;
 
     return (

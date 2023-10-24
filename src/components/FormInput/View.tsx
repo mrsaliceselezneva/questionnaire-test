@@ -1,11 +1,11 @@
 import React, { FC } from "react";
-import { StyledDiv, StyledTitle, StyledInput } from "./styles";
-import { Button, Checkbox, Form, Input, Radio } from "antd";
+import { Form, Input } from "antd";
 
+type ruleType = { required: boolean; message: string };
 interface TypeProps {
     label?: string;
     name?: string;
-    rules?: any;
+    rules?: ruleType[];
 }
 
 type FieldType = {

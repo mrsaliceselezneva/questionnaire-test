@@ -24,7 +24,7 @@ interface TypeProps {
     dataVk: dataLinkType;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { dataName, dataPhone, dataTg, dataVk } = props;
 
     return (

@@ -9,7 +9,7 @@ interface TypeProps {
 
 const { TextArea } = Input;
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { label, name, rows } = props;
 
     return (

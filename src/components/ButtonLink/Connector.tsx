@@ -14,11 +14,10 @@ type dataType = {
 
 interface TypeProps {
     data: dataType;
-    click?: any;
 }
 
 const Connector: FC<TypeProps> = (props) => {
-    const { data, click } = props;
+    const { data } = props;
 
     const navigate = useNavigate();
     const cookies = new Cookies();
@@ -32,7 +31,6 @@ const Connector: FC<TypeProps> = (props) => {
                 cookies.set("route", data.to);
                 dispatch(setCreateStep(data.to));
                 navigate(data.to);
-                click;
             }}
         />
     );

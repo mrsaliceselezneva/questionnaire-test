@@ -4,10 +4,12 @@ import type { UploadFile } from "antd/es/upload/interface";
 import type { RcFile, UploadProps } from "antd/es/upload";
 import View from "./View";
 
+type ruleType = { required: boolean; message: string };
+
 type dataFormUploadType = {
     label: string;
     name: string;
-    rules: any;
+    rules: ruleType[];
 };
 
 interface TypeProps {

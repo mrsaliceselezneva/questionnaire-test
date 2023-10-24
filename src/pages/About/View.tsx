@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Form, Input } from "antd";
+import { Form } from "antd";
 import FormButton from "components/FormButton";
 import ButtonLink from "components/ButtonLink";
 import { Wrapper, Bottom } from "./styles";
@@ -10,8 +10,8 @@ type formParameterType = {
     labelCol?: object;
     wrapperCol?: object;
     style?: object;
-    onFinish: any;
-    onFinishFailed: any;
+    onFinish: (values: any) => void;
+    onFinishFailed: (values: any) => void;
     autoComplete: string;
 };
 
@@ -37,8 +37,6 @@ interface TypeProps {
     dataButton: dataButtonType;
     dataCancel: dataCancelType;
 }
-
-const { TextArea } = Input;
 
 const View: FC<TypeProps> = (props: any) => {
     const { dataTextArea, formParameter, dataButton, dataCancel } = props;
