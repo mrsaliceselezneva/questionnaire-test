@@ -5,6 +5,7 @@ import { setCreateProfile, setDeleteProfile } from "../redux/slices/profileSlice
 import { useDispatch } from "react-redux";
 
 const onFinishFailed = (errorInfo: any) => {
+    //TODO: от console.log тоже нужно избавиться, в готовом проекте в идеале их быть не должно. Если очень хочешь чтобы ошибка выводилась в консоле, то лучше использовать console.error
     console.log(errorInfo);
     console.log("Failed:", errorInfo);
 };

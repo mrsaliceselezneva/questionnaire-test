@@ -1,14 +1,17 @@
 import React, { FC } from "react";
 import { StyledButton } from "./styles";
+import { ButtonType } from "antd/es/button";
 
 interface TypeProps {
     text: string;
     isDanger?: boolean;
-    type?: string;
+    type?: ButtonType;
     renavigate: () => void;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+//TODO: Пример как убрать any у props
+const View: FC<TypeProps> = (props) => {
+    props.type;
     const { text, isDanger, type = "primary", renavigate } = props;
 
     return (

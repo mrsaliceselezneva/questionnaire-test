@@ -27,10 +27,12 @@ const Connector: FC<TypeProps> = (props) => {
     const handleCancel = () => setPreviewOpen(false);
 
     const handlePreview = async (file: UploadFile) => {
-        if (!file.url && !file.preview) {
-            file.preview = await getBase64(file.originFileObj as RcFile);
+        // TODO: пример как избавиться от as RcFile
+        if (file.originFileObj && !file.url && !file.preview) {
+            file.preview = await getBase64(file.originFileObj);
         }
 
+        // TODO: если ты уверен, что тут всегда должна быть строка, то лучше сделать String(file.preview) или добавить проверку
         setPreviewImage(file.url || (file.preview as string));
         setPreviewOpen(true);
         if (file.url)

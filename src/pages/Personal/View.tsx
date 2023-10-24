@@ -10,7 +10,8 @@ type formParameterType = {
     name: string;
     labelCol: object;
     wrapperCol: object;
-    onFinish: (values: any) => void;
+    //TODO: пример как избавиться от any
+    onFinish: (values: dataRadioType) => void;
     onFinishFailed: (values: any) => void;
     autoComplete: string;
 };

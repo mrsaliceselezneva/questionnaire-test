@@ -7,6 +7,7 @@ import FormSelect from "components/FormSelect";
 
 type formParameterType = {
     name: string;
+    //TODO: тип object тоже нужно убрать (это равносильно any), вместо этого нужно описать тип, то есть какой именно объект ты используешь
     labelCol?: object;
     wrapperCol?: object;
     style?: object;

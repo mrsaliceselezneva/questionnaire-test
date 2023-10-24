@@ -63,7 +63,9 @@ const Controller: FC<TypeProps> = (props) => {
 
     const dispatch = useDispatch();
 
-    const onFinish = (values: any) => {
+    //TODO: пример что нужно сделать с оставшимися any, укажи типы для всех исходя из данных, которые принимают функции
+    // + тип dataRadioType повторяется в двух файлах - создай файл с типами и оттуда импортируй (касается и других типов тоже)
+    const onFinish = (values: dataRadioType) => {
         console.log("Success:", values);
         const sendData = {
             email: profile.email,

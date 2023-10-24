@@ -13,10 +13,10 @@ type FieldType = {
     name?: string;
     patronymic?: string;
 };
-
+//TODO: убрать any, у тебя и так указан TypeProps
 const View: FC<TypeProps> = (props: any) => {
     const { label, name, rules } = props;
-
+    //TODO: после того как уберешь any <FieldType> не нужно будет
     return (
         <Form.Item<FieldType> label={label} name={name} rules={rules}>
             <Input />
