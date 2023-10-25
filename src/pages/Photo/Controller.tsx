@@ -4,7 +4,7 @@ import Cookies from "cookies-ts";
 import { useAppSelector, useAppDispatch } from "api/hooks";
 import { setCreateStep } from "../../redux/slices/stepSlice";
 import { sendRequest } from "api/utils";
-import { onFinishFailed, useTo } from "api/helpers";
+import { useTo } from "api/helpers";
 import { formParameterType, dataButtonType, dataCancelType, dataFormUploadType } from "api/types";
 import View from "./View";
 
@@ -40,7 +40,7 @@ const Controller: FC<TypeProps> = (props) => {
         sendRequest(nowStep, "post", sendData);
     };
 
-    const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };
+    const formFunction = { ...formParameter, onFinish: onFinish };
 
     return (
         <View

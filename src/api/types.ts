@@ -54,7 +54,6 @@ type formParameterFinishType = {
     wrapperCol?: colType;
     style?: styleType;
     onFinish: (values: any) => void;
-    onFinishFailed: (values: any) => void;
     autoComplete: string;
 };
 
