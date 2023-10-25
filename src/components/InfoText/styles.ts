@@ -7,8 +7,8 @@ type Props = {
     fontSize: number;
     lineHeight: number;
     color: string;
-    colorHover: string;
-    margin: number;
+    colorHover?: string;
+    margin?: number;
 };
 
 const Text = styled.div<Props>`

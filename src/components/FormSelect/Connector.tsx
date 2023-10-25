@@ -1,16 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
 import type { SelectProps } from "antd";
 import { sendRequest } from "api/utils";
+import { dataSelectType } from "api/types";
 import View from "./View";
 
 type optionType = {
     label: string;
     value: string;
-};
-
-type dataSelectType = {
-    label: string;
-    name: string;
 };
 
 interface TypeProps {

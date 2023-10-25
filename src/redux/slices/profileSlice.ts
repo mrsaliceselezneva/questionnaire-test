@@ -1,6 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../store";
 
-const initialState = {
+type typeProfile = { email: string; picture: string };
+
+interface typeState {
+    profile: typeProfile;
+}
+
+const initialState: typeState = {
     profile: { email: "", picture: "" },
 };
 
@@ -8,7 +15,7 @@ const profileSlice = createSlice({
     name: "profileSlice",
     initialState,
     reducers: {
-        setCreateProfile(state, action) {
+        setCreateProfile(state, action: PayloadAction<typeProfile>) {
             state.profile = action.payload;
         },
         setDeleteProfile(state) {

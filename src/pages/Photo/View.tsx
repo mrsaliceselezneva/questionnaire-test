@@ -3,41 +3,17 @@ import { Form } from "antd";
 import FormButton from "components/FormButton";
 import FormUpload from "components/FormUpload";
 import ButtonLink from "components/ButtonLink";
+import {
+    formParameterFinishType,
+    dataButtonType,
+    dataCancelType,
+    dataFormUploadType,
+} from "api/types";
 import { Wrapper, Bottom } from "./styles";
 
-type formParameterType = {
-    name: string;
-    labelCol: object;
-    wrapperCol: object;
-    onFinish: (values: any) => void;
-    onFinishFailed: (values: any) => void;
-    autoComplete: string;
-};
-
-type ruleType = {
-    required: boolean;
-    message: string;
-};
-
-type dataFormUploadType = {
-    label: string;
-    name: string;
-    rules: ruleType[];
-};
-
-type dataFormButtonType = {
-    title: string;
-};
-
-type dataCancelType = {
-    to: string;
-    text: string;
-    isDanger: boolean;
-};
-
 interface TypeProps {
-    formParameter: formParameterType;
-    dataButton: dataFormButtonType;
+    formParameter: formParameterFinishType;
+    dataButton: dataButtonType;
     dataUpload: dataFormUploadType;
     dataCancel: dataCancelType;
 }

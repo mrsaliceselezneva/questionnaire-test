@@ -18,6 +18,7 @@ const Footer = styled.div`
     flex-direction: row;
     justify-content: right;
     align-items: center;
+    width: 100%;
     ${adaptiveWidth}
 `;
 

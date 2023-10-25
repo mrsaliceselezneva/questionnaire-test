@@ -2,11 +2,10 @@ import type { RcFile } from "antd/es/upload";
 import axios from "axios";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import { setCreateProfile, setDeleteProfile } from "../redux/slices/profileSlice";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "api/hooks";
 
 const onFinishFailed = (errorInfo: any) => {
-    console.log(errorInfo);
-    console.log("Failed:", errorInfo);
+    console.error("Failed:", errorInfo);
 };
 
 const getBase64 = (file: RcFile): Promise<string> =>
@@ -18,11 +17,10 @@ const getBase64 = (file: RcFile): Promise<string> =>
     });
 
 function useLogin() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     return useGoogleLogin({
         onSuccess: (codeResponse) => {
-            console.log("Login Success:", codeResponse);
             axios
                 .get(
                     `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${codeResponse.access_token}`,
@@ -36,14 +34,14 @@ function useLogin() {
                 .then((result) => {
                     dispatch(setCreateProfile(result.data));
                 })
-                .catch((error) => console.log(error));
+                .catch((error) => console.error(error));
         },
-        onError: (error) => console.log("Login Failed:", error),
+        onError: (error) => console.error("Login Failed:", error),
     });
 }
 
 function useLogout() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     return () => {
         googleLogout();
         dispatch(setDeleteProfile());

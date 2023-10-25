@@ -2,38 +2,18 @@ import React, { FC } from "react";
 import { Form } from "antd";
 import FormButton from "components/FormButton";
 import ButtonLink from "components/ButtonLink";
-import { Wrapper, Bottom } from "./styles";
+import {
+    formParameterFinishType,
+    dataButtonType,
+    dataCancelType,
+    dataTextAreaType,
+} from "api/types";
 import FormTextArea from "components/FormTextArea";
-
-type formParameterType = {
-    name: string;
-    labelCol?: object;
-    wrapperCol?: object;
-    style?: object;
-    onFinish: (values: any) => void;
-    onFinishFailed: (values: any) => void;
-    autoComplete: string;
-};
-
-type dataButtonType = {
-    title: string;
-};
-
-type dataCancelType = {
-    to: string;
-    text: string;
-    isDanger: boolean;
-};
-
-type dataTextAreaType = {
-    label: string;
-    name: string;
-    rows: number;
-};
+import { Wrapper, Bottom } from "./styles";
 
 interface TypeProps {
     dataTextArea: dataTextAreaType;
-    formParameter: formParameterType;
+    formParameter: formParameterFinishType;
     dataButton: dataButtonType;
     dataCancel: dataCancelType;
 }

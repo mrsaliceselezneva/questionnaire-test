@@ -1,39 +1,21 @@
 import React, { FC } from "react";
 import { sendRequest } from "api/utils";
 import { onFinishFailed, useTo } from "api/helpers";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "api/hooks";
 import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 import { setCreateStep } from "../../redux/slices/stepSlice";
+import { formParameterType, dataButtonType, dataCancelType, dataSelectType } from "api/types";
 import View from "./View";
 
-type formParameterType = {
-    name: string;
-    labelCol?: object;
-    wrapperCol?: object;
-    style?: object;
-    autoComplete: string;
-};
-
-type dataFormButtonType = {
-    title: string;
-};
-
-type dataCancelType = {
-    to: string;
-    text: string;
-    isDanger: boolean;
-};
-
-type dataSelectType = {
-    label: string;
-    name: string;
+type onFinishType = {
+    select: string[];
 };
 
 interface TypeProps {
     dataSelect: dataSelectType;
     formParameter: formParameterType;
-    dataButton: dataFormButtonType;
+    dataButton: dataButtonType;
     dataCancel: dataCancelType;
 }
 
@@ -42,12 +24,12 @@ const Controller: FC<TypeProps> = (props) => {
 
     const navigate = useNavigate();
     const cookies = new Cookies();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const { profile } = useSelector((state: any) => state.profileReducer);
+    const { profile } = useAppSelector((state) => state.profileReducer);
 
-    const onFinish = (values: any) => {
-        console.log("Success:", values);
+    const onFinish = (values: onFinishType) => {
+        console.log(values);
         const sendData = {
             email: profile.email,
             ...values,
@@ -59,7 +41,7 @@ const Controller: FC<TypeProps> = (props) => {
             dispatch(setCreateStep(to));
             navigate(to);
         });
-        sendRequest(nowStep, "post", sendData);
+        // sendRequest(nowStep, "post", sendData);
     };
 
     const formFunction = { ...formParameter, onFinish: onFinish, onFinishFailed: onFinishFailed };

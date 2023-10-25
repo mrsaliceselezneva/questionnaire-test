@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import colors from "styles/colors";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "api/hooks";
 import Controller from "./Controller";
 
 const Connector: FC = () => {
-    const { profile } = useSelector((state: any) => state.profileReducer);
+    const { profile } = useAppSelector((state) => state.profileReducer);
 
     const isEmptyProfile = profile.email.length > 0;
 

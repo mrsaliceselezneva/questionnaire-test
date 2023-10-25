@@ -3,39 +3,19 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 import { sendRequest } from "api/utils";
 import { onFinishFailed, useTo } from "api/helpers";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "api/hooks";
 import { setCreateStep } from "../../redux/slices/stepSlice";
+import {
+    formParameterType,
+    dataButtonType,
+    dataCancelType,
+    dataFormInputType,
+    dataRadioType,
+} from "api/types";
 import View from "./View";
 
-type formParameterType = {
-    name: string;
-    labelCol: object;
-    wrapperCol: object;
-    autoComplete: string;
-};
+type onFinishType = { surname: string; name: string; patronymic: string; gender: string };
 
-type ruleType = { required: boolean; message: string };
-
-type dataFormInputType = { label: string; name: string; rules: ruleType[] };
-
-type radioType = { value: string; title: string };
-
-type dataRadioType = {
-    label: string;
-    name: string;
-    rules: ruleType[];
-    radioList: radioType[];
-};
-
-type dataButtonType = {
-    title: string;
-};
-
-type dataCancelType = {
-    to: string;
-    text: string;
-    isDanger: boolean;
-};
 interface TypeProps {
     formParameter: formParameterType;
     dataSurname: dataFormInputType;
@@ -59,12 +39,11 @@ const Controller: FC<TypeProps> = (props) => {
 
     const navigate = useNavigate();
     const cookies = new Cookies();
-    const { profile } = useSelector((state: any) => state.profileReducer);
+    const { profile } = useAppSelector((state) => state.profileReducer);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const onFinish = (values: any) => {
-        console.log("Success:", values);
+    const onFinish = (values: onFinishType) => {
         const sendData = {
             email: profile.email,
             ...values,

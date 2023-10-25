@@ -1,15 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import { sendRequest } from "api/utils";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "api/hooks";
+import { itemType } from "api/types";
 import View from "./View";
 
-type itemType = {
-    title: string;
-    link: string;
-};
-
 const Connector: FC = () => {
-    const { nowStep } = useSelector((state: any) => state.stepReducer);
+    const { nowStep } = useAppSelector((state) => state.stepReducer);
 
     const [current, setCurrent] = useState(-1);
     const [items, setItems] = useState([]);

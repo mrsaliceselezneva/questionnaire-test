@@ -1,17 +1,7 @@
 import React, { FC } from "react";
 import { useLogin, useLogout } from "api/helpers";
+import { dataTextType } from "api/types";
 import View from "./View";
-
-type dataTextType = {
-    to: string;
-    text: string;
-    fontWeight: number;
-    fontSize: number;
-    lineHeight: number;
-    color: string;
-    colorHover: string;
-    isLink: boolean;
-};
 interface TypeProps {
     dataText: dataTextType;
     isEmptyProfile: boolean;

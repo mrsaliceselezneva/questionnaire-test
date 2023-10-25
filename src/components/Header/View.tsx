@@ -1,21 +1,9 @@
 import React, { FC } from "react";
-import axios from "axios";
 import InfoText from "components/InfoText";
-import colors from "styles/colors";
 import { Tooltip } from "react-tooltip";
 import { FcGoogle } from "react-icons/fc";
+import { dataTextType } from "api/types";
 import { Wrapper, Header, Google, Img } from "./styles";
-
-type dataTextType = {
-    to: string;
-    text: string;
-    fontWeight: number;
-    fontSize: number;
-    lineHeight: number;
-    color: string;
-    colorHover: string;
-    isLink: boolean;
-};
 interface TypeProps {
     dataText: dataTextType;
     isEmptyProfile: boolean;

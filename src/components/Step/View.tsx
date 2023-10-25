@@ -1,11 +1,8 @@
 import React, { FC } from "react";
-import { Wrapper } from "./styles";
+import { itemType } from "api/types";
 import { Steps } from "antd";
+import { Wrapper } from "./styles";
 
-type itemType = {
-    title: string;
-    link: string;
-};
 interface TypeProps {
     current: number;
     items: itemType[];

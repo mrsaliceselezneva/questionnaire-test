@@ -1,9 +1,6 @@
 import React, { FC } from "react";
 import { Form, Radio } from "antd";
-
-type radioType = { value: string; title: string };
-
-type ruleType = { required: boolean; message: string };
+import { ruleType, radioType } from "api/types";
 interface TypeProps {
     label?: string;
     name?: string;

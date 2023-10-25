@@ -7,7 +7,7 @@ interface TypeProps {
     options: SelectProps["options"];
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { label, name, options } = props;
 
     return (

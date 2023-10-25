@@ -13,11 +13,11 @@ interface TypeProps {
     isLink: boolean;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { isLink, to, text, ...rest } = props;
 
     const cmp = isLink ? (
-        <TextLink {...rest} to={to}>
+        <TextLink {...rest} to={to as string}>
             {text}
         </TextLink>
     ) : (

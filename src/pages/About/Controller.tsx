@@ -3,39 +3,20 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 import { sendRequest } from "api/utils";
 import { onFinishFailed, useTo } from "api/helpers";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from "api/hooks";
 import { setCreateStep } from "../../redux/slices/stepSlice";
+import { formParameterType, dataButtonType, dataCancelType, dataTextAreaType } from "api/types";
 import { message } from "antd";
 import View from "./View";
 
-type formParameterType = {
-    name: string;
-    labelCol?: object;
-    wrapperCol?: object;
-    style?: object;
-    autoComplete: string;
-};
-
-type dataFormButtonType = {
-    title: string;
-};
-
-type dataCancelType = {
-    to: string;
-    text: string;
-    isDanger: boolean;
-};
-
-type dataTextAreaType = {
-    label: string;
-    name: string;
-    rows: number;
+type onFinishType = {
+    textArea: string;
 };
 
 interface TypeProps {
     dataTextArea: dataTextAreaType;
     formParameter: formParameterType;
-    dataButton: dataFormButtonType;
+    dataButton: dataButtonType;
     dataCancel: dataCancelType;
 }
 
@@ -44,12 +25,12 @@ const Controller: FC<TypeProps> = (props) => {
 
     const navigate = useNavigate();
     const cookies = new Cookies();
-    const { profile } = useSelector((state: any) => state.profileReducer);
+    const { profile } = useAppSelector((state) => state.profileReducer);
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const onFinish = (values: any) => {
-        console.log("Success:", values);
+    const onFinish = (values: onFinishType) => {
+        console.log(values);
         const sendData = {
             email: profile.email,
             ...values,

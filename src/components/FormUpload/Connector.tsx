@@ -1,10 +1,9 @@
 import React, { FC, useState } from "react";
 import { getBase64 } from "api/helpers";
 import type { UploadFile } from "antd/es/upload/interface";
-import type { RcFile, UploadProps } from "antd/es/upload";
+import type { UploadProps } from "antd/es/upload";
+import { ruleType } from "api/types";
 import View from "./View";
-
-type ruleType = { required: boolean; message: string };
 
 type dataFormUploadType = {
     label: string;
@@ -27,11 +26,11 @@ const Connector: FC<TypeProps> = (props) => {
     const handleCancel = () => setPreviewOpen(false);
 
     const handlePreview = async (file: UploadFile) => {
-        if (!file.url && !file.preview) {
-            file.preview = await getBase64(file.originFileObj as RcFile);
+        if (file.originFileObj && !file.url && !file.preview) {
+            file.preview = await getBase64(file.originFileObj);
         }
 
-        setPreviewImage(file.url || (file.preview as string));
+        setPreviewImage(file.url || String(file.preview));
         setPreviewOpen(true);
         if (file.url)
             setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf("/") + 1));

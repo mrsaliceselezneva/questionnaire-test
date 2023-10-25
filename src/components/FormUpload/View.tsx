@@ -3,9 +3,8 @@ import { Upload, Form, Modal } from "antd";
 import type { UploadFile } from "antd/es/upload/interface";
 import type { UploadProps } from "antd/es/upload";
 import { PlusOutlined } from "@ant-design/icons";
+import { ruleType } from "api/types";
 import { StyledUpload, StyledImg } from "./styles";
-
-type ruleType = { required: boolean; message: string };
 interface TypeProps {
     label: string;
     name: string;

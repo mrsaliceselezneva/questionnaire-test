@@ -4,42 +4,17 @@ import FormInput from "components/FormInput";
 import FormRadio from "components/FormRadio";
 import FormButton from "components/FormButton";
 import ButtonLink from "components/ButtonLink";
+import {
+    formParameterFinishType,
+    dataButtonType,
+    dataCancelType,
+    dataFormInputType,
+    dataRadioType,
+} from "api/types";
 import { Wrapper, Bottom } from "./styles";
 
-type formParameterType = {
-    name: string;
-    labelCol: object;
-    wrapperCol: object;
-    onFinish: (values: any) => void;
-    onFinishFailed: (values: any) => void;
-    autoComplete: string;
-};
-
-type dataFormInputType = { label: string; name: string; rules: any };
-
-type ruleType = { required: boolean; message: string };
-
-type radioType = { value: string; title: string };
-
-type dataRadioType = {
-    label: string;
-    name: string;
-    rules: ruleType[];
-    radioList: radioType[];
-};
-
-type dataButtonType = {
-    title: string;
-};
-
-type dataCancelType = {
-    to: string;
-    text: string;
-    isDanger: boolean;
-    click?: any;
-};
 interface TypeProps {
-    formParameter: formParameterType;
+    formParameter: formParameterFinishType;
     dataSurname: dataFormInputType;
     dataName: dataFormInputType;
     dataPatronymic: dataFormInputType;
