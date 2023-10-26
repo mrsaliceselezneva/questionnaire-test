@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import ButtonLink from "components/ButtonLink";
+import { ButtonType } from "antd/es/button";
 import Wrapper from "./styles";
 
 type dataType = {
     to: string;
     text: string;
     isDanger?: boolean;
-    type?: string;
 };
 
 interface TypeProps {

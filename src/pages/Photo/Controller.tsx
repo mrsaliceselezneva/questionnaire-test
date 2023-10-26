@@ -5,7 +5,14 @@ import { useAppSelector, useAppDispatch } from "api/hooks";
 import { setCreateStep } from "../../redux/slices/stepSlice";
 import { sendRequest } from "api/utils";
 import { useTo } from "api/helpers";
-import { formParameterType, dataButtonType, dataCancelType, dataFormUploadType } from "api/types";
+import { fourType } from "api/dataTypes";
+import {
+    formParameterType,
+    dataButtonType,
+    dataCancelType,
+    dataFormUploadType,
+    nextStepType,
+} from "api/types";
 import View from "./View";
 
 interface TypeProps {
@@ -23,15 +30,15 @@ const Controller: FC<TypeProps> = (props) => {
 
     const dispatch = useAppDispatch();
 
-    const { profile } = useAppSelector((state: any) => state.profileReducer);
+    const { profile } = useAppSelector((state) => state.profileReducer);
 
-    const onFinish = (values: any) => {
+    const onFinish = (values: fourType) => {
         const sendData = {
             email: profile.email,
             ...values,
         };
         const nowStep = "/photo";
-        sendRequest("next-step", "get").then((data) => {
+        sendRequest("next-step", "get").then((data: nextStepType[]) => {
             const to = useTo(data, nowStep);
             cookies.set("route", to);
             dispatch(setCreateStep(to));

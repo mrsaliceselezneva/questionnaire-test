@@ -8,12 +8,12 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import Step from "components/Step";
 import { Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "api/hooks";
 import React, { FC } from "react";
 
 const App: FC = () => {
-    const { profile } = useSelector((state: any) => state.profileReducer);
-    const { nowStep } = useSelector((state: any) => state.stepReducer);
+    const { profile } = useAppSelector((state) => state.profileReducer);
+    const { nowStep } = useAppSelector((state) => state.stepReducer);
 
     const isAuthorization = profile.email.length > 0;
 

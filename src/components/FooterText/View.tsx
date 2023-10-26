@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Text, TextLink } from "./styles";
 
 interface TypeProps {
-    to: string;
     text: string;
     fontWeight: number;
     fontSize: number;
@@ -14,15 +13,9 @@ interface TypeProps {
 }
 
 const View: FC<TypeProps> = (props) => {
-    const { isLink, to, text, ...rest } = props;
+    const { isLink, text, ...rest } = props;
 
-    const cmp = isLink ? (
-        <TextLink {...rest} to={to}>
-            {text}
-        </TextLink>
-    ) : (
-        <Text {...rest}>{text}</Text>
-    );
+    const cmp = isLink ? <TextLink {...rest}>{text}</TextLink> : <Text {...rest}>{text}</Text>;
 
     return cmp;
 };

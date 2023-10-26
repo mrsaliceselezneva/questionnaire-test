@@ -18,7 +18,7 @@ interface TypeProps {
     dataCancel: dataCancelType;
 }
 
-const View: FC<TypeProps> = (props: any) => {
+const View: FC<TypeProps> = (props) => {
     const { dataTextArea, formParameter, dataButton, dataCancel } = props;
 
     return (

@@ -8,7 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import GlobalStyle from "styles/GlobalStyle";
 import { persistor, store } from "./redux/store";
 
-const rootElement = document.getElementById("root") as HTMLElement;
+const rootElement = document.getElementById("root");
 
 if (rootElement) {
     const root = ReactDOM.createRoot(rootElement);

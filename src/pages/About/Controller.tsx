@@ -3,15 +3,18 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 import { sendRequest } from "api/utils";
 import { useTo } from "api/helpers";
+import { fourType } from "api/dataTypes";
 import { useAppSelector, useAppDispatch } from "api/hooks";
 import { setCreateStep } from "../../redux/slices/stepSlice";
-import { formParameterType, dataButtonType, dataCancelType, dataTextAreaType } from "api/types";
+import {
+    formParameterType,
+    dataButtonType,
+    dataCancelType,
+    dataTextAreaType,
+    nextStepType,
+} from "api/types";
 import { message } from "antd";
 import View from "./View";
-
-type onFinishType = {
-    textArea: string;
-};
 
 interface TypeProps {
     dataTextArea: dataTextAreaType;
@@ -29,7 +32,7 @@ const Controller: FC<TypeProps> = (props) => {
 
     const dispatch = useAppDispatch();
 
-    const onFinish = (values: onFinishType) => {
+    const onFinish = (values: fourType) => {
         console.log(values);
         const sendData = {
             email: profile.email,
@@ -38,7 +41,7 @@ const Controller: FC<TypeProps> = (props) => {
         message.success("Форма отправлена!");
         setTimeout(() => {
             const nowStep = "/about";
-            sendRequest("next-step", "get").then((data) => {
+            sendRequest("next-step", "get").then((data: nextStepType[]) => {
                 const to = useTo(data, nowStep);
                 cookies.set("route", to);
                 dispatch(setCreateStep(to));

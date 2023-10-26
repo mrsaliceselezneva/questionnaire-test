@@ -2,17 +2,14 @@ import type { RcFile } from "antd/es/upload";
 import axios from "axios";
 import { googleLogout, useGoogleLogin } from "@react-oauth/google";
 import { setCreateProfile, setDeleteProfile } from "../redux/slices/profileSlice";
+import { nextStepType } from "api/types";
 import { useAppDispatch } from "api/hooks";
-
-const onFinishFailed = (errorInfo: any) => {
-    console.error("Failed:", errorInfo);
-};
 
 const getBase64 = (file: RcFile): Promise<string> =>
     new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result as string);
+        reader.onload = () => resolve("" + reader.result);
         reader.onerror = (error) => reject(error);
     });
 
@@ -48,13 +45,8 @@ function useLogout() {
     };
 }
 
-type dataType = {
-    first: string;
-    second: string;
-};
-
-function useTo(data: any, nowStep: string) {
-    return data.find((item: dataType) => item.first === nowStep).second;
+function useTo(data: nextStepType[], nowStep: string) {
+    return data?.find((item: nextStepType) => item.first === nowStep)?.second || "/";
 }
 
-export { onFinishFailed, getBase64, useLogin, useLogout, useTo };
+export { getBase64, useLogin, useLogout, useTo };

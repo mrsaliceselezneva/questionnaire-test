@@ -1,4 +1,5 @@
 import React from "react";
+import { fourType } from "api/dataTypes";
 
 type ruleType = { required: boolean; message: string };
 
@@ -53,7 +54,7 @@ type formParameterFinishType = {
     labelCol?: colType;
     wrapperCol?: colType;
     style?: styleType;
-    onFinish: (values: any) => void;
+    onFinish: (values: fourType) => void;
     autoComplete: string;
 };
 
@@ -77,6 +78,11 @@ type dataSelectType = {
     name: string;
 };
 
+type nextStepType = {
+    first: string;
+    second: string;
+};
+
 export type {
     ruleType,
     radioType,
@@ -91,4 +97,5 @@ export type {
     dataRadioType,
     dataFormUploadType,
     dataSelectType,
+    nextStepType,
 };

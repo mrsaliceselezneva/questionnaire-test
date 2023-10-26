@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Wrapper, Info, Footer } from "./styles";
 import FooterIcon from "components/FooterIcon";
-import InfoText from "components/InfoText";
+import FooterText from "components/FooterText";
 
 type dataTextType = {
     text: string;
@@ -31,8 +31,8 @@ const View: FC<TypeProps> = (props) => {
         <Wrapper>
             <Footer>
                 <Info>
-                    <InfoText {...dataName} />
-                    <InfoText {...dataPhone} />
+                    <FooterText {...dataName} />
+                    <FooterText {...dataPhone} />
                 </Info>
                 <FooterIcon {...dataTg} />
                 <FooterIcon {...dataVk} />

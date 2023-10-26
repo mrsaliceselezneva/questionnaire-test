@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "cookies-ts";
 import { sendRequest } from "api/utils";
 import { useTo } from "api/helpers";
+import { fourType } from "api/dataTypes";
 import { useAppSelector, useAppDispatch } from "api/hooks";
 import { setCreateStep } from "../../redux/slices/stepSlice";
 import {
@@ -11,10 +12,9 @@ import {
     dataCancelType,
     dataFormInputType,
     dataRadioType,
+    nextStepType,
 } from "api/types";
 import View from "./View";
-
-type onFinishType = { surname: string; name: string; patronymic: string; gender: string };
 
 interface TypeProps {
     formParameter: formParameterType;
@@ -43,14 +43,14 @@ const Controller: FC<TypeProps> = (props) => {
 
     const dispatch = useAppDispatch();
 
-    const onFinish = (values: onFinishType) => {
+    const onFinish = (values: fourType) => {
         const sendData = {
             email: profile.email,
             ...values,
         };
 
         const nowStep = "/personal";
-        sendRequest("next-step", "get").then((data) => {
+        sendRequest("next-step", "get").then((data: nextStepType[]) => {
             const to = useTo(data, nowStep);
             cookies.set("route", to);
             dispatch(setCreateStep(to));
