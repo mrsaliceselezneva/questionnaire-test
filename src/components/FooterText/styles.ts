@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import text from "styles/text";
-import { Link } from "react-router-dom";
 
 type Props = {
     fontWeight: number;

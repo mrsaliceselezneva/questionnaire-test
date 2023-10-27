@@ -1,8 +1,8 @@
 const desktop = {
-    desktop1: "1400px",
-    desktop2: "1120px",
-    desktop3: "840px",
-    desktop4: "600px",
+    desktopLaptop: "1400px",
+    desktopMiniLaptop: "1120px",
+    desktopTab: "840px",
+    desktopPhone: "600px",
 };
 
 export default desktop;

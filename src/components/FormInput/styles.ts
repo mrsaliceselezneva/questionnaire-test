@@ -9,10 +9,10 @@ const StyledDiv = styled.div`
     margin-bottom: 10px;
     width: 60%;
     box-sizing: border-box;
-    @desktop (max-width: ${desktop.desktop3}) {
+    @desktop (max-width: ${desktop.desktopTab}) {
         width: 80%;
     }
-    @desktop (max-width: ${desktop.desktop4}) {
+    @desktop (max-width: ${desktop.desktopPhone}) {
         flex-direction: column;
     }
     margin-left: auto;
@@ -23,7 +23,7 @@ const StyledTitle = styled.div`
     width: 80px;
     justify-content: start;
     box-sizing: border-box;
-    @desktop (max-width: ${desktop.desktop4}) {
+    @desktop (max-width: ${desktop.desktopPhone}) {
         width: 100%;
     }
 `;
